@@ -1,1 +1,1 @@
-# 🚀 Pre-Releas
+# 🚀 Pre-Release
