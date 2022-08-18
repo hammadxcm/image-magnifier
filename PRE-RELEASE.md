@@ -1,3 +1,3 @@
 # 🚀 Pre-Release v0.9.0
 
-## 📋 Status: Feature Complete & Read
+## 📋 Status: Feature Complete & Ready
