@@ -2,4 +2,4 @@
 
 ## 📋 Status: Feature Complete & Ready for Testing
 
-This is a **feature-complete pre-release** version o
+This is a **feature-complete pre-release** version of
