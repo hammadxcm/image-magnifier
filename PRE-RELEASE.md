@@ -2,4 +2,4 @@
 
 ## 📋 Status: Feature Complete & Ready for Testing
 
-This is a **feature-complete pre-release** version of React Image Magnifier with exte
+This is a **feature-complete pre-release** version of React Image Magnifier with exten
