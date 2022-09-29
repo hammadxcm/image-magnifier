@@ -5,4 +5,4 @@
 This is a **feature-complete pre-release** version of React Image Magnifier with extensive new capabilities.
 
 ### ✅ What's Included
-- ✅ All 39+ new featur
+- ✅ All 39+ new feature
