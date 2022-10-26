@@ -8,4 +8,4 @@ This is a **feature-complete pre-release** version of React Image Magnifier with
 - ✅ All 39+ new features implemented
 - ✅ All bugs fixed and tested
 - ✅ TypeScript compilation successful
-- ✅ Sample ap
+- ✅ Sample app
