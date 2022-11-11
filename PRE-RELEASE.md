@@ -10,4 +10,4 @@ This is a **feature-complete pre-release** version of React Image Magnifier with
 - ✅ TypeScript compilation successful
 - ✅ Sample app working perfectly
 - ✅ Documentation complete
-- ✅ Perfor
+- ✅ Perform
