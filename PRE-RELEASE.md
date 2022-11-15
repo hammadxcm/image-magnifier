@@ -11,3 +11,4 @@ This is a **feature-complete pre-release** version of React Image Magnifier with
 - ✅ Sample app working perfectly
 - ✅ Documentation complete
 - ✅ Performance optimized
+
