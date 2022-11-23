@@ -12,4 +12,4 @@ This is a **feature-complete pre-release** version of React Image Magnifier with
 - ✅ Documentation complete
 - ✅ Performance optimized
 
-### 🎯 Purpose of P
+### 🎯 Purpose of Pr
