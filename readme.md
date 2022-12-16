@@ -1,1 +1,1 @@
-# React Image Mag
+# React Image Magn
