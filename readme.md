@@ -1,1 +1,1 @@
-# React Image Magn
+# React Image Magni
