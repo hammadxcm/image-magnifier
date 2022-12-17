@@ -1,1 +1,1 @@
-# React Image Magnifi
+# React Image Magnifie
