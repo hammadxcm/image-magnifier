@@ -1,1 +1,1 @@
-# React Image Magnifier v0.
+# React Image Magnifier v0.9
