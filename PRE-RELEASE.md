@@ -15,4 +15,4 @@ This is a **feature-complete pre-release** version of React Image Magnifier with
 ### 🎯 Purpose of Pre-Release
 This v0.9.0 pre-release allows the community to:
 - **Test all new features** before official release
-- **Provide fe
+- **Provide fee
