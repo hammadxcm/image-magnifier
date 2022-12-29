@@ -1,3 +1,3 @@
 # React Image Magnifier v0.9 🔍
 
-> **🚀 PRE-RELEASE:** Compl
+> **🚀 PRE-RELEASE:** Comple
