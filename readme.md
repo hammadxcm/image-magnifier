@@ -2,4 +2,4 @@
 
 > **🚀 PRE-RELEASE:** Complete rewrite with incredible new features!
 
-A powerful, feature-
+A powerful, feature-r
