@@ -16,4 +16,4 @@ This is a **feature-complete pre-release** version of React Image Magnifier with
 This v0.9.0 pre-release allows the community to:
 - **Test all new features** before official release
 - **Provide feedback** on functionality and API design
-- **Report any edge cases** or compatibi
+- **Report any edge cases** or compatibil
