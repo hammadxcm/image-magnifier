@@ -2,4 +2,4 @@
 
 > **🚀 PRE-RELEASE:** Complete rewrite with incredible new features!
 
-A powerful, feature-rich React 
+A powerful, feature-rich React c
