@@ -2,4 +2,4 @@
 
 > **🚀 PRE-RELEASE:** Complete rewrite with incredible new features!
 
-A powerful, feature-rich React component for image magnification with advan
+A powerful, feature-rich React component for image magnification with advanc
