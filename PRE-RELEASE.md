@@ -17,4 +17,4 @@ This v0.9.0 pre-release allows the community to:
 - **Test all new features** before official release
 - **Provide feedback** on functionality and API design
 - **Report any edge cases** or compatibility issues
-- **Validate performance** i
+- **Validate performance** in
