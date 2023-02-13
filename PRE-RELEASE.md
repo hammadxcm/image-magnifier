@@ -19,4 +19,4 @@ This v0.9.0 pre-release allows the community to:
 - **Report any edge cases** or compatibility issues
 - **Validate performance** in real-world applications
 
-### 🔄 Migratio
+### 🔄 Migration
