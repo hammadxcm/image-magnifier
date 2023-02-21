@@ -20,4 +20,4 @@ This v0.9.0 pre-release allows the community to:
 - **Validate performance** in real-world applications
 
 ### 🔄 Migration Path
-- **Backward Compatible**
+- **Backward Compatible**:
