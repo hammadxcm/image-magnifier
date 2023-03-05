@@ -21,4 +21,4 @@ This v0.9.0 pre-release allows the community to:
 
 ### 🔄 Migration Path
 - **Backward Compatible**: All v1.x code continues to work
-- **Gradual Adoption**: U
+- **Gradual Adoption**: Us
