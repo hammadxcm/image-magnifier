@@ -24,4 +24,4 @@ This v0.9.0 pre-release allows the community to:
 - **Gradual Adoption**: Use new features at your own pace
 - **No Breaking Changes**: Existing implementations remain stable
 
-### 📅 Re
+### 📅 Rel
