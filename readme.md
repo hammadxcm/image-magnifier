@@ -4,4 +4,4 @@
 
 A powerful, feature-rich React component for image magnification with advanced capabilities including touch support, multiple themes, performance optimization, and accessibility features.
 
-[![npm version](https://badge.fury.io/js/@hammadxcm%2Fimage-magnifier.svg)](https://www.npmjs.com/package/@hammadxcm/image-magnifi
+[![npm version](https://badge.fury.io/js/@hammadxcm%2Fimage-magnifier.svg)](https://www.npmjs.com/package/@hammadxcm/image-magnifie
