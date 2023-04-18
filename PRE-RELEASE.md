@@ -25,4 +25,4 @@ This v0.9.0 pre-release allows the community to:
 - **No Breaking Changes**: Existing implementations remain stable
 
 ### 📅 Release Timeline
-1. **v0.9.0** (Current)
+1. **v0.9.0** (Current) 
