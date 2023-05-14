@@ -26,4 +26,4 @@ This v0.9.0 pre-release allows the community to:
 
 ### 📅 Release Timeline
 1. **v0.9.0** (Current) - Pre-release for testing and feedback
-2. **v0.9.x** - Bug fixes and minor improvements based 
+2. **v0.9.x** - Bug fixes and minor improvements based o
