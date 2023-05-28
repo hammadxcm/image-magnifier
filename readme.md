@@ -6,4 +6,4 @@ A powerful, feature-rich React component for image magnification with advanced c
 
 [![npm version](https://badge.fury.io/js/@hammadxcm%2Fimage-magnifier.svg)](https://www.npmjs.com/package/@hammadxcm/image-magnifier)
 [![License](https://img.shields.io/npm/l/@hammadxcm/image-magnifier)](https://github.com/hammadxcm/react-image-magnifier/blob/main/LICENSE)
-[![React](https://i
+[![React](https://im
