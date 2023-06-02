@@ -28,3 +28,4 @@ This v0.9.0 pre-release allows the community to:
 1. **v0.9.0** (Current) - Pre-release for testing and feedback
 2. **v0.9.x** - Bug fixes and minor improvements based on feedback
 3. **v1.0.0** - Official stable release
+
