@@ -30,4 +30,4 @@ This v0.9.0 pre-release allows the community to:
 3. **v1.0.0** - Official stable release
 
 ### 🤝 How to Help
-1. **Install & Test**: `npm install @ha
+1. **Install & Test**: `npm install @ham
