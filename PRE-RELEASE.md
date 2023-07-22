@@ -32,4 +32,4 @@ This v0.9.0 pre-release allows the community to:
 ### 🤝 How to Help
 1. **Install & Test**: `npm install @hammadxcm/image-magnifier@0.9.0`
 2. **Try New Features**: Use advanced components and themes
-3. **Report Issues**: C
+3. **Report Issues**: Cr
