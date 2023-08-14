@@ -33,4 +33,4 @@ This v0.9.0 pre-release allows the community to:
 1. **Install & Test**: `npm install @hammadxcm/image-magnifier@0.9.0`
 2. **Try New Features**: Use advanced components and themes
 3. **Report Issues**: Create GitHub issues for any problems
-4. **Share Feedback**: Let us know what work
+4. **Share Feedback**: Let us know what works
