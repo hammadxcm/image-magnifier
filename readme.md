@@ -8,4 +8,4 @@ A powerful, feature-rich React component for image magnification with advanced c
 [![License](https://img.shields.io/npm/l/@hammadxcm/image-magnifier)](https://github.com/hammadxcm/react-image-magnifier/blob/main/LICENSE)
 [![React](https://img.shields.io/badge/React-18%2B%20%7C%2019%2B-blue)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue)](https://www.typescriptlang.org/)
-[![Bundle Size](https://img.shields.io/bundlephobia/minzip/@hammadxcm/image-magnifier)](https://bundlephobia.com/package/@hammadxcm/image
+[![Bundle Size](https://img.shields.io/bundlephobia/minzip/@hammadxcm/image-magnifier)](https://bundlephobia.com/package/@hammadxcm/image-
