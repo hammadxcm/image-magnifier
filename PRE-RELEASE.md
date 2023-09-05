@@ -36,4 +36,4 @@ This v0.9.0 pre-release allows the community to:
 4. **Share Feedback**: Let us know what works great and what could be better
 
 ### 🛡️ Stability Promise
-- **Production R
+- **Production Re
