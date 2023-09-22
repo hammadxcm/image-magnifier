@@ -10,4 +10,4 @@ A powerful, feature-rich React component for image magnification with advanced c
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue)](https://www.typescriptlang.org/)
 [![Bundle Size](https://img.shields.io/bundlephobia/minzip/@hammadxcm/image-magnifier)](https://bundlephobia.com/package/@hammadxcm/image-magnifier)
 
-> ⚠️ **Pre-Release Notice**: This is v0.9.0, a feature-complete pre-release version. All features are
+> ⚠️ **Pre-Release Notice**: This is v0.9.0, a feature-complete pre-release version. All features are 
