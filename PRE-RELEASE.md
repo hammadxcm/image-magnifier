@@ -38,4 +38,4 @@ This v0.9.0 pre-release allows the community to:
 ### 🛡️ Stability Promise
 - **Production Ready**: All features are thoroughly tested
 - **API Stable**: No breaking changes planned for v1.0
-- **Bug Fixes Only**: Only bug fixes and minor im
+- **Bug Fixes Only**: Only bug fixes and minor imp
