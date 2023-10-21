@@ -40,4 +40,4 @@ This v0.9.0 pre-release allows the community to:
 - **API Stable**: No breaking changes planned for v1.0
 - **Bug Fixes Only**: Only bug fixes and minor improvements until v1.0
 
-### 📞 G
+### 📞 Ge
