@@ -41,4 +41,4 @@ This v0.9.0 pre-release allows the community to:
 - **Bug Fixes Only**: Only bug fixes and minor improvements until v1.0
 
 ### 📞 Get Support
-- 🐛 [Report Issues
+- 🐛 [Report Issues]
