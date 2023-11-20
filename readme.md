@@ -17,4 +17,4 @@ A powerful, feature-rich React component for image magnification with advanced c
 <details>
 <summary><strong>📋 Complete Changelog</strong> (Click to expand)</summary>
 
-###
+### 
