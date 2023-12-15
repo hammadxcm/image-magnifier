@@ -18,4 +18,4 @@ A powerful, feature-rich React component for image magnification with advanced c
 <summary><strong>📋 Complete Changelog</strong> (Click to expand)</summary>
 
 ### 🎯 **BREAKING CHANGES**
-- **New Advanced Component**: `ReactImageMagnifierAdvanced` with 2
+- **New Advanced Component**: `ReactImageMagnifierAdvanced` with 25
