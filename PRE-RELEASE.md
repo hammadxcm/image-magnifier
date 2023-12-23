@@ -43,4 +43,4 @@ This v0.9.0 pre-release allows the community to:
 ### 📞 Get Support
 - 🐛 [Report Issues](https://github.com/hammadxcm/react-image-magnifier/issues)
 - 💬 [Discussions](https://github.com/hammadxcm/react-image-magnifier/discussions)
-- 📖 [Documentation](https://github.com/hammadxcm/react-image-magnif
+- 📖 [Documentation](https://github.com/hammadxcm/react-image-magnifi
