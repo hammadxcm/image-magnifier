@@ -45,3 +45,4 @@ This v0.9.0 pre-release allows the community to:
 - 💬 [Discussions](https://github.com/hammadxcm/react-image-magnifier/discussions)
 - 📖 [Documentation](https://github.com/hammadxcm/react-image-magnifier#readme)
 
+-
