@@ -47,4 +47,4 @@ This v0.9.0 pre-release allows the community to:
 
 ---
 
-**Thank you for hel
+**Thank you for help
