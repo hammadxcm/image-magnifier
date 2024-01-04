@@ -47,4 +47,4 @@ This v0.9.0 pre-release allows the community to:
 
 ---
 
-**Thank you for helping us m
+**Thank you for helping us ma
