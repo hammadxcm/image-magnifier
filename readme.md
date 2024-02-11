@@ -21,4 +21,4 @@ A powerful, feature-rich React component for image magnification with advanced c
 - **New Advanced Component**: `ReactImageMagnifierAdvanced` with 25+ customizable props
 - **Context Provider**: `MagnifierProvider` for global state management
 - **Updated Exports**: Multiple named exports for better tree-shaking
-- **Enhanced TypeScript**: Complete type definiti
+- **Enhanced TypeScript**: Complete type definitio
