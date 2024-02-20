@@ -23,4 +23,4 @@ A powerful, feature-rich React component for image magnification with advanced c
 - **Updated Exports**: Multiple named exports for better tree-shaking
 - **Enhanced TypeScript**: Complete type definitions with strict typing
 
-### ✨ **NEW FEATURE
+### ✨ **NEW FEATURES
