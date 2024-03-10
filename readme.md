@@ -26,4 +26,4 @@ A powerful, feature-rich React component for image magnification with advanced c
 ### ✨ **NEW FEATURES**
 
 #### 🎨 **Visual Enhancements**
-- **4 Built-in Themes**: Classic, Modern, 
+- **4 Built-in Themes**: Classic, Modern, D
