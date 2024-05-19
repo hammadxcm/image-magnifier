@@ -29,4 +29,4 @@ A powerful, feature-rich React component for image magnification with advanced c
 - **4 Built-in Themes**: Classic, Modern, Dark, and Neon themes
 - **Custom Theme Support**: Full customization of colors, borders, and effects
 - **Multiple Cursor Styles**: `crosshair`, `zoom-in`, `grab`, `pointer`, `none`
-- **Positioning Modes**: `follow`, `fixed-top-right`
+- **Positioning Modes**: `follow`, `fixed-top-right`,
