@@ -30,4 +30,4 @@ A powerful, feature-rich React component for image magnification with advanced c
 - **Custom Theme Support**: Full customization of colors, borders, and effects
 - **Multiple Cursor Styles**: `crosshair`, `zoom-in`, `grab`, `pointer`, `none`
 - **Positioning Modes**: `follow`, `fixed-top-right`, `fixed-top-left`, `fixed-bottom-right`, `fixed-bottom-left`
-- **Zoom Controls**: Interactive +/- buttons with cus
+- **Zoom Controls**: Interactive +/- buttons with cust
