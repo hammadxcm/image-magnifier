@@ -31,4 +31,4 @@ A powerful, feature-rich React component for image magnification with advanced c
 - **Multiple Cursor Styles**: `crosshair`, `zoom-in`, `grab`, `pointer`, `none`
 - **Positioning Modes**: `follow`, `fixed-top-right`, `fixed-top-left`, `fixed-bottom-right`, `fixed-bottom-left`
 - **Zoom Controls**: Interactive +/- buttons with customizable min/max zoom
-- **Mini Map**
+- **Mini Map**:
