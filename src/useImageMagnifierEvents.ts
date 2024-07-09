@@ -1,6 +1,6 @@
 import { useState, MouseEvent } from 'react';
 
-interface PositionState {
+export interface PositionState {
     x: number;
     y: number;
     mouseX: number;
