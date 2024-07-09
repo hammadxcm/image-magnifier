@@ -1,0 +1,12 @@
+{
+  "name": "react-image-magnifier",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Hammad Khan",
+  "license": "ISC",
+  "description": "A React component for magnifying images with a zoom effect."
+}

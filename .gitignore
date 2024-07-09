@@ -1,0 +1,27 @@
+# Dependency directories
+node_modules/
+
+# Compiled TypeScript output
+dist/
+
+# Environment variables
+.env*
+
+# IDE and editor specific files
+.vscode/
+.idea/
+*.iml
+
+# Logs
+logs/
+*.log
+
+# Build files
+build/
+out/
+
+# Miscellaneous
+.DS_Store
+*.tmp
+*.bak
+*.swp
