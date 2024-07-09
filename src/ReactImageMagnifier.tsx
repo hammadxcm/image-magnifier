@@ -27,7 +27,7 @@ const ReactImageMagnifier: React.FC<ReactImageMagnifierProps> = ({ imageSrc }) =
         onMouseLeave={handleMouseLeave}
         onMouseEnter={handleMouseEnter}
         onMouseMove={handleMouseMove}
-        className='w-80 h-96 relative overflow-hidden'>
+        className='relative overflow-hidden'>
         <Image
           key={`magnifier-${fileName(imageSrc)}`}
           className='object-cover border z-10'
