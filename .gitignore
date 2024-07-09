@@ -25,3 +25,7 @@ out/
 *.tmp
 *.bak
 *.swp
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts

@@ -1,5 +1,5 @@
-import React from 'react';
-import Image from 'next/image';
+import React from 'react'; // Ensure React is imported properly
+import Image from 'next/image'; // Ensure next/image is imported properly
 import { useImageMagnifierEvents } from './useImageMagnifierEvents';
 import { MAGNIFIER_SIZE, ZOOM_LEVEL } from './useImageMagnifierEvents';
 
