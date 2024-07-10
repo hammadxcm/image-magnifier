@@ -1,55 +1,72 @@
-import { useState, MouseEvent } from 'react';
+import { useState, useEffect } from 'react';
+
+export const MAGNIFIER_SIZE = 150;
+export const ZOOM_LEVEL = 2;
 
 export interface PositionState {
-    x: number;
-    y: number;
-    mouseX: number;
-    mouseY: number;
+  mouseX: number;
+  mouseY: number;
+  x: number;
+  y: number;
 }
 
-export const MAGNIFIER_SIZE = 100;
-export const ZOOM_LEVEL = 2.5;
-
 export const useImageMagnifierEvents = () => {
-    const [zoomable, setZoomable] = useState(false);
-    const [imageSize, setImageSize] = useState({ width: 0, height: 0 });
-    const [position, setPosition] = useState<PositionState>({ x: 0, y: 0, mouseX: 0, mouseY: 0 });
+  const [zoomable, setZoomable] = useState(false);
+  const [imageSize, setImageSize] = useState({ width: 0, height: 0 });
+  const [position, setPosition] = useState<PositionState>({ mouseX: 0, mouseY: 0, x: 0, y: 0 });
 
-    const handleMouseEnter = (e: MouseEvent<HTMLDivElement>) => {
-        let element = e.currentTarget;
-        let { width, height } = element.getBoundingClientRect();
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const handleMouseEnter = () => {
+      setZoomable(true);
+    };
+
+    const handleMouseLeave = () => {
+      setZoomable(false);
+    };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const { offsetX, offsetY, target } = e;
+      if (target instanceof HTMLImageElement) {
+        const { width, height } = target;
         setImageSize({ width, height });
-        setZoomable(true);
-        updatePosition(e);
-    };
-
-    const handleMouseLeave = (e: MouseEvent<HTMLDivElement>) => {
-        setZoomable(false);
-        updatePosition(e);
-    };
-
-    const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
-        updatePosition(e);
-    };
-
-    const updatePosition = (e: MouseEvent<HTMLDivElement>) => {
-        const { left, top } = e.currentTarget.getBoundingClientRect();
-        let x = e.clientX - left;
-        let y = e.clientY - top;
         setPosition({
-            x: -x * ZOOM_LEVEL + (MAGNIFIER_SIZE / 2),
-            y: -y * ZOOM_LEVEL + (MAGNIFIER_SIZE / 2),
-            mouseX: x - (MAGNIFIER_SIZE / 2),
-            mouseY: y - (MAGNIFIER_SIZE / 2),
+          mouseX: offsetX - MAGNIFIER_SIZE / 2,
+          mouseY: offsetY - MAGNIFIER_SIZE / 2,
+          x: offsetX,
+          y: offsetY,
         });
+      }
     };
 
-    return {
-        zoomable,
-        imageSize,
-        position,
-        handleMouseEnter,
-        handleMouseLeave,
-        handleMouseMove,
+    window.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
     };
+  }, []);
+
+  return {
+    zoomable,
+    imageSize,
+    position,
+    handleMouseEnter: () => setZoomable(true),
+    handleMouseLeave: () => setZoomable(false),
+    handleMouseMove: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+      const { offsetX, offsetY, target } = e.nativeEvent;
+      if (target instanceof HTMLImageElement) {
+        const { width, height } = target;
+        setImageSize({ width, height });
+        setPosition({
+          mouseX: offsetX - MAGNIFIER_SIZE / 2,
+          mouseY: offsetY - MAGNIFIER_SIZE / 2,
+          x: offsetX,
+          y: offsetY,
+        });
+      }
+    },
+  };
 };
