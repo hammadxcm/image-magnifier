@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { useImageMagnifierEvents } from './useImageMagnifierEvents';
 import { MAGNIFIER_SIZE, ZOOM_LEVEL } from './useImageMagnifierEvents';
 
@@ -46,6 +47,19 @@ const ReactImageMagnifier: React.FC<ReactImageMagnifierProps> = ({ imageSrc }) =
           className='object-cover border z-10'
           alt={`magnifier-${fileName(imageSrc)}`}
           src={imageSrc}
+        />
+        <Image
+          key={`magnifier-${fileName(imageSrc)}`}
+          className='object-cover z-10'
+          alt={`magnifier-${fileName(imageSrc)}`}
+          src={imageSrc}
+          sizes='(max-width: 700px) 100vw, (max-width: 300px) 100vw, 700px'
+          style={{
+            width: '500px',
+            height: '500px',
+          }}
+          width={500}
+          height={500}
         />
         <div
           style={{
