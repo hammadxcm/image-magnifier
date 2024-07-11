@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import { useImageMagnifierEvents } from './useImageMagnifierEvents';
 import { MAGNIFIER_SIZE, ZOOM_LEVEL } from './useImageMagnifierEvents';
 
@@ -24,19 +23,19 @@ const ReactImageMagnifier: React.FC<ReactImageMagnifierProps> = ({ imageSrc }) =
   if (typeof window === 'undefined') {
     // Render a static version or placeholder for SSR
     return (
-      <div className='flex justify-center items-center'>
-        <Image
+      <div className='relative overflow-hidden'>
+        <img
           key={`magnifier-${fileName(imageSrc)}`}
-          className='object-cover z-10'
+          className="object-cover z-10"
           alt={`magnifier-${fileName(imageSrc)}`}
           src={imageSrc}
-          sizes='(max-width: 700px) 100vw, (max-width: 300px) 100vw, 700px'
+          sizes="(max-width: 700px) 100vw, (max-width: 300px) 100vw, 700px"
           style={{
             width: '500px',
             height: '500px',
           }}
-          width={500}
-          height={500}
+          width="500"
+          height="500"
         />
       </div>
     );
@@ -49,7 +48,7 @@ const ReactImageMagnifier: React.FC<ReactImageMagnifierProps> = ({ imageSrc }) =
         onMouseEnter={handleMouseEnter}
         onMouseMove={handleMouseMove}
         className='relative overflow-hidden'>
-        <Image
+        <img
           key={`magnifier-${fileName(imageSrc)}`}
           className='object-cover z-10'
           alt={`magnifier-${fileName(imageSrc)}`}

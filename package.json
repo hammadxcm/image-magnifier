@@ -1,6 +1,6 @@
 {
   "name": "@hammadxcm/react-image-magnifier",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
@@ -39,8 +39,5 @@
   "homepage": "https://github.com/hammadxcm/react-image-magnifier#readme",
   "files": [
     "dist"
-  ],
-  "dependencies": {
-    "next": "^14.2.4"
-  }
+  ]
 }
