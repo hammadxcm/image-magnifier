@@ -1,20 +1,53 @@
+'use client';
 import React from 'react';
-import { useImageMagnifierEvents } from './useImageMagnifierEvents';
-import { MAGNIFIER_SIZE, ZOOM_LEVEL } from './useImageMagnifierEvents';
+import { useState, MouseEvent } from 'react';
 
-export interface ReactImageMagnifierProps {
+interface ReactImageMagnifierProps {
   imageSrc: string;
 }
 
 const ReactImageMagnifier: React.FC<ReactImageMagnifierProps> = ({ imageSrc }) => {
-  const {
-    zoomable,
-    imageSize,
-    position,
-    handleMouseEnter,
-    handleMouseLeave,
-    handleMouseMove,
-  } = useImageMagnifierEvents();
+  const MAGNIFIER_SIZE = 300;
+  const ZOOM_LEVEL = 2.5;
+
+
+  const [zoomable, setZoomable] = useState(false);
+  const [imageSize, setImageSize] = useState({ width: 0, height: 0 });
+  const [position, setPosition] = useState({
+    x: 0,
+    y: 0,
+    mouseX: 0,
+    mouseY: 0,
+  });
+
+  const handleMouseEnter = (e: MouseEvent) => {
+    const element = e.currentTarget;
+    const { width, height } = element?.getBoundingClientRect();
+    setImageSize({ width, height });
+    setZoomable(true);
+    updatePosition(e);
+  };
+
+  const handleMouseLeave = (e: MouseEvent) => {
+    setZoomable(false);
+    updatePosition(e);
+  };
+
+  const handleMouseMove = (e: MouseEvent) => {
+    updatePosition(e);
+  };
+
+  const updatePosition = (e: MouseEvent) => {
+    const { left, top } = e?.currentTarget?.getBoundingClientRect();
+    const x = e.clientX - left;
+    const y = e.clientY - top;
+    setPosition({
+      x: -x * ZOOM_LEVEL + MAGNIFIER_SIZE / 2,
+      y: -y * ZOOM_LEVEL + MAGNIFIER_SIZE / 2,
+      mouseX: x - MAGNIFIER_SIZE / 2,
+      mouseY: y - MAGNIFIER_SIZE / 2,
+    });
+  };
 
   const fileName = (imageSrc: string) => {
     return imageSrc?.split('/')?.pop();
@@ -47,11 +80,12 @@ const ReactImageMagnifier: React.FC<ReactImageMagnifierProps> = ({ imageSrc }) =
         onMouseLeave={handleMouseLeave}
         onMouseEnter={handleMouseEnter}
         onMouseMove={handleMouseMove}
-        className='relative overflow-hidden'>
+        className='relative overflow-hidden'
+      >
         <img
           key={`magnifier-${fileName(imageSrc)}`}
           className='object-cover z-10'
-          alt={`magnifier-${fileName(imageSrc)}`}
+          alt={`${fileName(imageSrc)}`}
           src={imageSrc}
           sizes='(max-width: 700px) 100vw, (max-width: 300px) 100vw, 700px'
           style={{
@@ -73,7 +107,7 @@ const ReactImageMagnifier: React.FC<ReactImageMagnifierProps> = ({ imageSrc }) =
             width: `${MAGNIFIER_SIZE}px`,
             height: `${MAGNIFIER_SIZE}px`,
           }}
-          className={`z-50 border-4 rounded-full pointer-events-none absolute border-gray-500`}
+          className='z-50 border-4 rounded-full pointer-events-none absolute border-gray-500'
         />
       </div>
     </div>
