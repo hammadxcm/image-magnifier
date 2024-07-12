@@ -13,16 +13,19 @@ npm install react-image-magnifier --save
 ```
 
 ### pnpm
+
 ```bash
 pnpm add react-image-magnifier
 ```
+
 ### yarn
+
 ```bash
 yard add react-image-magnifier
 ```
 
 ## Usage
-    
+
 ```tsx
 import React from 'react';
 import ReactImageMagnifier from 'react-image-magnifier';
@@ -31,7 +34,7 @@ const App = () => {
   return (
     <div>
       <h1>Image Magnifier Example</h1>
-      <ReactImageMagnifier imageSrc="https://picsum.photos/200/300.jpg" />
+      <ReactImageMagnifier imageSrc='https://picsum.photos/200/300.jpg' />
     </div>
   );
 };

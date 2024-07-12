@@ -1,16 +1,31 @@
 'use client';
+import 'styles/globals.css';
 import React from 'react';
 import { useState, MouseEvent } from 'react';
 
 interface ReactImageMagnifierProps {
   imageSrc: string;
+  magnifierSize?: number;
+  zoomLevel?: number;
+  imageClassName?: string;
+  imageAlt?: string;
+  imageSizes?: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  className?: string;
 }
 
-const ReactImageMagnifier: React.FC<ReactImageMagnifierProps> = ({ imageSrc }) => {
-  const MAGNIFIER_SIZE = 300;
-  const ZOOM_LEVEL = 2.5;
-
-
+const ReactImageMagnifier: React.FC<ReactImageMagnifierProps> = ({
+  imageSrc,
+  magnifierSize = 300,
+  zoomLevel = 2.5,
+  imageClassName = 'object-cover z-10',
+  imageAlt,
+  imageSizes = '(max-width: 700px) 100vw, (max-width: 300px) 100vw, 700px',
+  imageWidth = 500,
+  imageHeight = 500,
+  className = 'flex justify-center items-center',
+}) => {
   const [zoomable, setZoomable] = useState(false);
   const [imageSize, setImageSize] = useState({ width: 0, height: 0 });
   const [position, setPosition] = useState({
@@ -22,7 +37,7 @@ const ReactImageMagnifier: React.FC<ReactImageMagnifierProps> = ({ imageSrc }) =
 
   const handleMouseEnter = (e: MouseEvent) => {
     const element = e.currentTarget;
-    const { width, height } = element?.getBoundingClientRect();
+    const { width, height } = element.getBoundingClientRect();
     setImageSize({ width, height });
     setZoomable(true);
     updatePosition(e);
@@ -38,14 +53,14 @@ const ReactImageMagnifier: React.FC<ReactImageMagnifierProps> = ({ imageSrc }) =
   };
 
   const updatePosition = (e: MouseEvent) => {
-    const { left, top } = e?.currentTarget?.getBoundingClientRect();
+    const { left, top } = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - left;
     const y = e.clientY - top;
     setPosition({
-      x: -x * ZOOM_LEVEL + MAGNIFIER_SIZE / 2,
-      y: -y * ZOOM_LEVEL + MAGNIFIER_SIZE / 2,
-      mouseX: x - MAGNIFIER_SIZE / 2,
-      mouseY: y - MAGNIFIER_SIZE / 2,
+      x: -x * zoomLevel + magnifierSize / 2,
+      y: -y * zoomLevel + magnifierSize / 2,
+      mouseX: x - magnifierSize / 2,
+      mouseY: y - magnifierSize / 2,
     });
   };
 
@@ -59,23 +74,23 @@ const ReactImageMagnifier: React.FC<ReactImageMagnifierProps> = ({ imageSrc }) =
       <div className='relative overflow-hidden'>
         <img
           key={`magnifier-${fileName(imageSrc)}`}
-          className="object-cover z-10"
-          alt={`magnifier-${fileName(imageSrc)}`}
+          className={imageClassName}
+          alt={imageAlt || `magnifier-${fileName(imageSrc)}`}
           src={imageSrc}
-          sizes="(max-width: 700px) 100vw, (max-width: 300px) 100vw, 700px"
+          sizes={imageSizes}
           style={{
-            width: '500px',
-            height: '500px',
+            width: `${imageWidth}px`,
+            height: `${imageHeight}px`,
           }}
-          width="500"
-          height="500"
+          width={imageWidth}
+          height={imageHeight}
         />
       </div>
     );
   }
 
   return (
-    <div className='flex justify-center items-center'>
+    <div className={className}>
       <div
         onMouseLeave={handleMouseLeave}
         onMouseEnter={handleMouseEnter}
@@ -84,28 +99,28 @@ const ReactImageMagnifier: React.FC<ReactImageMagnifierProps> = ({ imageSrc }) =
       >
         <img
           key={`magnifier-${fileName(imageSrc)}`}
-          className='object-cover z-10'
-          alt={`${fileName(imageSrc)}`}
+          className={imageClassName}
+          alt={imageAlt || `${fileName(imageSrc)}`}
           src={imageSrc}
-          sizes='(max-width: 700px) 100vw, (max-width: 300px) 100vw, 700px'
+          sizes={imageSizes}
           style={{
-            width: '500px',
-            height: '500px',
+            width: `${imageWidth}px`,
+            height: `${imageHeight}px`,
           }}
-          width={500}
-          height={500}
+          width={imageWidth}
+          height={imageHeight}
         />
         <div
           style={{
             backgroundPosition: `${position.x}px ${position.y}px`,
             backgroundImage: `url(${imageSrc})`,
-            backgroundSize: `${imageSize.width * ZOOM_LEVEL}px ${imageSize.height * ZOOM_LEVEL}px`,
+            backgroundSize: `${imageSize.width * zoomLevel}px ${imageSize.height * zoomLevel}px`,
             backgroundRepeat: 'no-repeat',
             display: zoomable ? 'block' : 'none',
             top: `${position.mouseY}px`,
             left: `${position.mouseX}px`,
-            width: `${MAGNIFIER_SIZE}px`,
-            height: `${MAGNIFIER_SIZE}px`,
+            width: `${magnifierSize}px`,
+            height: `${magnifierSize}px`,
           }}
           className='z-50 border-4 rounded-full pointer-events-none absolute border-gray-500'
         />
