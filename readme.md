@@ -32,4 +32,4 @@ A powerful, feature-rich React component for image magnification with advanced c
 - **Positioning Modes**: `follow`, `fixed-top-right`, `fixed-top-left`, `fixed-bottom-right`, `fixed-bottom-left`
 - **Zoom Controls**: Interactive +/- buttons with customizable min/max zoom
 - **Mini Map**: Navigation overview showing current magnified area
-- **Watermarks**: Add text or React components as waterm
+- **Watermarks**: Add text or React components as waterma
