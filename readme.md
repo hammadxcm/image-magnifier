@@ -34,4 +34,4 @@ A powerful, feature-rich React component for image magnification with advanced c
 - **Mini Map**: Navigation overview showing current magnified area
 - **Watermarks**: Add text or React components as watermarks
 - **Overlay Content**: Custom overlay components on images
-- **Smooth Animations**: Con
+- **Smooth Animations**: Conf
