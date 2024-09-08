@@ -36,4 +36,4 @@ A powerful, feature-rich React component for image magnification with advanced c
 - **Overlay Content**: Custom overlay components on images
 - **Smooth Animations**: Configurable transitions and easing
 
-#### 📱
+#### 📱 
