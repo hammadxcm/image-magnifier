@@ -37,3 +37,4 @@ A powerful, feature-rich React component for image magnification with advanced c
 - **Smooth Animations**: Configurable transitions and easing
 
 #### 📱 **Touch & Mobile Support**
+-
