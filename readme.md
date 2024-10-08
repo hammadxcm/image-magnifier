@@ -37,4 +37,4 @@ A powerful, feature-rich React component for image magnification with advanced c
 - **Smooth Animations**: Configurable transitions and easing
 
 #### 📱 **Touch & Mobile Support**
-- **Full Touch Support**: Native touch events with gesture recogn
+- **Full Touch Support**: Native touch events with gesture recogni
