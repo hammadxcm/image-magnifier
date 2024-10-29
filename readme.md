@@ -39,4 +39,4 @@ A powerful, feature-rich React component for image magnification with advanced c
 #### 📱 **Touch & Mobile Support**
 - **Full Touch Support**: Native touch events with gesture recognition
 - **Pinch to Zoom**: Multi-touch zoom gestures
-- **Touch Navigation**:
+- **Touch Navigation**: 
