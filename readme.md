@@ -40,4 +40,4 @@ A powerful, feature-rich React component for image magnification with advanced c
 - **Full Touch Support**: Native touch events with gesture recognition
 - **Pinch to Zoom**: Multi-touch zoom gestures
 - **Touch Navigation**: Drag to move magnification area
-- **Mobile Opt
+- **Mobile Opti
