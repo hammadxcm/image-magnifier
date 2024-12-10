@@ -42,3 +42,4 @@ A powerful, feature-rich React component for image magnification with advanced c
 - **Touch Navigation**: Drag to move magnification area
 - **Mobile Optimized**: Responsive design for all screen sizes
 - **Gesture Callbacks**: Custom handlers for touch events
+
