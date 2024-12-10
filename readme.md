@@ -43,4 +43,4 @@ A powerful, feature-rich React component for image magnification with advanced c
 - **Mobile Optimized**: Responsive design for all screen sizes
 - **Gesture Callbacks**: Custom handlers for touch events
 
-##
+###
