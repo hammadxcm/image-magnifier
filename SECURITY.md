@@ -1,1 +1,1 @@
-[# Security Polic
+[# Security Policy
