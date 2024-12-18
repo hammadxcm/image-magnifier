@@ -1,3 +1,3 @@
 [# Security Policy
 
-## Supporte
+## Supported
