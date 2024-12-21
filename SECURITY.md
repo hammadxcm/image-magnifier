@@ -1,3 +1,3 @@
 [# Security Policy
 
-## Supported Version
+## Supported Versions
