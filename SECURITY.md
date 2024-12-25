@@ -2,4 +2,4 @@
 
 ## Supported Versions
 
-Use this sec
+Use this sect
