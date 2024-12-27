@@ -2,4 +2,4 @@
 
 ## Supported Versions
 
-Use this section t
+Use this section to
