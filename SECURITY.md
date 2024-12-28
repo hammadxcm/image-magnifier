@@ -2,4 +2,4 @@
 
 ## Supported Versions
 
-Use this section to tel
+Use this section to tell
