@@ -2,4 +2,4 @@
 
 ## Supported Versions
 
-Use this section to tell peo
+Use this section to tell peop
