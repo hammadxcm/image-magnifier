@@ -44,4 +44,4 @@ A powerful, feature-rich React component for image magnification with advanced c
 - **Gesture Callbacks**: Custom handlers for touch events
 
 #### ⚡ **Performance Optimizations**
-- **Global State Management**: Only one active
+- **Global State Management**: Only one active 
