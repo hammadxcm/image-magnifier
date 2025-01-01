@@ -2,4 +2,4 @@
 
 ## Supported Versions
 
-Use this section to tell people abou
+Use this section to tell people about
