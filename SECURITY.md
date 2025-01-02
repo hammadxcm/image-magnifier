@@ -2,4 +2,4 @@
 
 ## Supported Versions
 
-Use this section to tell people about whi
+Use this section to tell people about whic
