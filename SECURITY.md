@@ -2,4 +2,4 @@
 
 ## Supported Versions
 
-Use this section to tell people about which vers
+Use this section to tell people about which versi
