@@ -2,4 +2,4 @@
 
 ## Supported Versions
 
-Use this section to tell people about which versions of yo
+Use this section to tell people about which versions of you
