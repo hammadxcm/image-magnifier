@@ -2,4 +2,4 @@
 
 ## Supported Versions
 
-Use this section to tell people about which versions of your pr
+Use this section to tell people about which versions of your pro
