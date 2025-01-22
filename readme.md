@@ -45,4 +45,4 @@ A powerful, feature-rich React component for image magnification with advanced c
 
 #### ⚡ **Performance Optimizations**
 - **Global State Management**: Only one active magnifier across the entire page
-- **60fps Throttling**: Smooth pe
+- **60fps Throttling**: Smooth per
