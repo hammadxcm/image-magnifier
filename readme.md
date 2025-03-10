@@ -47,4 +47,4 @@ A powerful, feature-rich React component for image magnification with advanced c
 - **Global State Management**: Only one active magnifier across the entire page
 - **60fps Throttling**: Smooth performance with high-frequency mouse movements
 - **Smart Re-rendering**: Optimized with React.memo and useCallback
-- **Lazy Loading**: Optional image preloa
+- **Lazy Loading**: Optional image preload
