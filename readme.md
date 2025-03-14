@@ -48,4 +48,4 @@ A powerful, feature-rich React component for image magnification with advanced c
 - **60fps Throttling**: Smooth performance with high-frequency mouse movements
 - **Smart Re-rendering**: Optimized with React.memo and useCallback
 - **Lazy Loading**: Optional image preloading
-- **Performan
+- **Performanc
