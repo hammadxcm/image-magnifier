@@ -50,4 +50,4 @@ A powerful, feature-rich React component for image magnification with advanced c
 - **Lazy Loading**: Optional image preloading
 - **Performance Mode**: Special mode for pages with many images
 
-###
+####
