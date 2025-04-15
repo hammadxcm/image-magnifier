@@ -14,4 +14,4 @@ currently being supported with security updates.
 
   ## Reporting a Vulnerability
   
-  Use this section to tel
+  Use this section to tell
