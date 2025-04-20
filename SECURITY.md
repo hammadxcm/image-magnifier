@@ -14,4 +14,4 @@ currently being supported with security updates.
 
   ## Reporting a Vulnerability
   
-  Use this section to tell people how to rep
+  Use this section to tell people how to repo
