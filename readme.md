@@ -51,4 +51,4 @@ A powerful, feature-rich React component for image magnification with advanced c
 - **Performance Mode**: Special mode for pages with many images
 
 #### ♿ **Accessibility & UX**
-- **Keyboard Navigation**: Full keyboard support (+/- to zoo
+- **Keyboard Navigation**: Full keyboard support (+/- to zoom
