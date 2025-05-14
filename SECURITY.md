@@ -16,4 +16,4 @@ currently being supported with security updates.
   
   Use this section to tell people how to report a vulnerability.
   
-  Tell them where to go, how often they can expect to get an upda
+  Tell them where to go, how often they can expect to get an updat
