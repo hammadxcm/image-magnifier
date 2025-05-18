@@ -53,4 +53,4 @@ A powerful, feature-rich React component for image magnification with advanced c
 #### ♿ **Accessibility & UX**
 - **Keyboard Navigation**: Full keyboard support (+/- to zoom, Escape to hide)
 - **ARIA Labels**: Complete screen reader support
-- **Focus Management**:
+- **Focus Management**: 
