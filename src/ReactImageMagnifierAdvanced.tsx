@@ -1,7 +1,8 @@
 'use client';
-import React, { useCallback, useId, useMemo, useState } from 'react';
+import React from 'react';
+import { useCallback, useId, useMemo, useState } from 'react';
 import { useMagnifierContext } from './MagnifierContext';
-import { useMagnifier } from './hooks/useMagnifier';
+import { useImageMagnifier } from './hooks/useImageMagnifier';
 import { useTouch } from './hooks/useTouch';
 
 export type MagnifierPosition = 'follow' | 'fixed-top-right' | 'fixed-top-left' | 'fixed-bottom-right' | 'fixed-bottom-left';
@@ -30,6 +31,7 @@ export interface ReactImageMagnifierAdvancedProps {
   theme?: string;
   customTheme?: Partial<import('./MagnifierContext').MagnifierTheme>;
   magnifierClassName?: string;
+  magnifierShape?: 'circle' | 'square';
   
   // Behavior
   disabled?: boolean;
@@ -73,6 +75,7 @@ const ReactImageMagnifierAdvanced: React.FC<ReactImageMagnifierAdvancedProps> = 
   theme,
   customTheme,
   magnifierClassName = '',
+  magnifierShape = 'circle',
   
   disabled = false,
   smoothTransitions = true,
@@ -142,7 +145,9 @@ const ReactImageMagnifierAdvanced: React.FC<ReactImageMagnifierAdvancedProps> = 
     updatePosition,
     handleImageLoad,
     handleImageError,
-  } = useMagnifier(magnifierOptions);
+    isLoading,
+    hasError,
+  } = useImageMagnifier(magnifierOptions);
 
   const touchOptions = useMemo(() => ({
     enabled: enableTouch && globalSettings.touchEnabled,
@@ -199,69 +204,24 @@ const ReactImageMagnifierAdvanced: React.FC<ReactImageMagnifierAdvancedProps> = 
     return positions[position] || {};
   }, [position]);
 
-  const magnifierStyles = useMemo(() => {
-    const baseStyles = {
-      display: isVisible && isImageLoaded && (isActive || !activeMagnifierId) ? 'block' : 'none',
-      width: `${magnifierSize}px`,
-      height: `${magnifierSize}px`,
-      borderRadius: '50%',
-      border: `${effectiveTheme.borderWidth}px solid ${effectiveTheme.borderColor}`,
-      pointerEvents: 'none' as const,
-      zIndex: 1000,
-      opacity: isVisible ? 1 : 0,
-      transform: isVisible ? 'scale(1)' : 'scale(0.8)',
-      boxShadow: `0 8px 32px ${effectiveTheme.shadowColor}, 0 0 0 1px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)`,
-      backdropFilter: effectiveTheme.backdropBlur ? 'blur(1px)' : 'none',
-      transition: smoothTransitions ? 'opacity 0.2s ease-in-out, transform 0.2s ease-in-out' : 'none',
-    };
+  
 
-    if (position === 'follow') {
-      return {
-        ...baseStyles,
-        position: 'absolute' as const,
-        top: `${magnifierPosition.mouseY}px`,
-        left: `${magnifierPosition.mouseX}px`,
-      };
-    } else {
-      return {
-        ...baseStyles,
-        position: 'fixed' as const,
-        ...getFixedPosition(),
-      };
-    }
-  }, [
-    isVisible,
-    isImageLoaded,
-    isActive,
-    activeMagnifierId,
-    magnifierSize,
-    effectiveTheme,
-    smoothTransitions,
-    position,
-    magnifierPosition,
-    getFixedPosition,
-  ]);
-
-  const lensStyles = useMemo(() => ({
-    width: '100%',
-    height: '100%',
-    backgroundImage: `url(${imageSrc})`,
-    backgroundSize: `${imageSize.width * currentZoom}px ${imageSize.height * currentZoom}px`,
-    backgroundPosition: `${magnifierPosition.x}px ${magnifierPosition.y}px`,
-    backgroundRepeat: 'no-repeat',
-    borderRadius: '50%',
-  }), [imageSrc, imageSize, currentZoom, magnifierPosition]);
+  
 
   const cursorStyles = useMemo(() => ({
     cursor: disabled ? 'default' : cursorStyle,
   }), [disabled, cursorStyle]);
 
-  const fileName = useCallback((src: string) => {
-    return src?.split('/')?.pop() || 'image';
-  }, []);
-
   if (!imageSrc) {
     return null;
+  }
+
+  if (isLoading) {
+    return <div className="flex justify-center items-center w-full h-full text-gray-500">Loading image...</div>;
+  }
+
+  if (hasError) {
+    return <div className="flex justify-center items-center w-full h-full text-red-500">Error loading image.</div>;
   }
 
   return (
@@ -277,9 +237,9 @@ const ReactImageMagnifierAdvanced: React.FC<ReactImageMagnifierAdvancedProps> = 
         onKeyDown={handleKeyDown}
         className="relative overflow-hidden focus:outline-none"
         style={cursorStyles}
-        tabIndex={enableKeyboard ? 0 : -1}
+        tabIndex={enableKeyboard && !disabled ? 0 : -1}
         role="img"
-        aria-label={imageAlt || `Magnifiable image: ${fileName(imageSrc)}`}
+        aria-label={imageAlt || `Magnifiable image: ${imageSrc.split('/').pop() || 'image'}`}
       >
         {preloadImage && (
           <link rel="preload" as="image" href={imageSrc} />
@@ -287,9 +247,9 @@ const ReactImageMagnifierAdvanced: React.FC<ReactImageMagnifierAdvancedProps> = 
         
         <img
           ref={imageRef}
-          key={`magnifier-${fileName(imageSrc)}`}
+          key={`magnifier-${imageSrc.split('/').pop() || 'image'}`}
           className={imageClassName}
-          alt={imageAlt || fileName(imageSrc)}
+          alt={imageAlt || imageSrc.split('/').pop() || 'image'}
           src={imageSrc}
           sizes={imageSizes}
           onLoad={handleImageLoad}
@@ -364,42 +324,32 @@ const ReactImageMagnifierAdvanced: React.FC<ReactImageMagnifierAdvancedProps> = 
       {/* Magnifier Lens */}
       {!disabled && (
         <div
-          className={`magnifier-lens ${magnifierClassName}`}
-          style={magnifierStyles}
+          className={`magnifier-lens ${magnifierClassName} ${isActive || !activeMagnifierId ? 'block' : 'hidden'} ${magnifierShape === 'circle' ? 'rounded-full' : 'rounded-none'} pointer-events-none z-50 shadow-lg backdrop-blur-sm`}
+          style={{
+            width: `${magnifierSize}px`,
+            height: `${magnifierSize}px`,
+            border: `${effectiveTheme.borderWidth}px solid ${effectiveTheme.borderColor}`,
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'scale(1)' : 'scale(0.8)',
+            transition: smoothTransitions ? 'opacity 0.2s ease-in-out, transform 0.2s ease-in-out' : 'none',
+            position: position === 'follow' ? 'absolute' : 'fixed',
+            top: position === 'follow' ? `${magnifierPosition.mouseY}px` : getFixedPosition().top,
+            left: position === 'follow' ? `${magnifierPosition.mouseX}px` : getFixedPosition().left,
+            right: position === 'follow' ? 'auto' : getFixedPosition().right,
+            bottom: position === 'follow' ? 'auto' : getFixedPosition().bottom,
+          }}
           aria-hidden="true"
         >
-          <div style={lensStyles} />
-          
-          {/* Magnifier Handle */}
-          <div
+          <div 
+            className={`w-full h-full bg-no-repeat ${magnifierShape === 'circle' ? 'rounded-full' : 'rounded-none'}`}
             style={{
-              position: 'absolute',
-              bottom: '-20px',
-              right: '-20px',
-              width: '40px',
-              height: '8px',
-              backgroundColor: effectiveTheme.handleColor,
-              borderRadius: '4px',
-              transform: 'rotate(45deg)',
-              boxShadow: `0 2px 8px ${effectiveTheme.shadowColor}`,
-              border: `1px solid ${effectiveTheme.gripColor}`,
+              backgroundImage: `url(${imageSrc})`,
+              backgroundSize: `${imageSize.width * currentZoom}px ${imageSize.height * currentZoom}px`,
+              backgroundPosition: `${magnifierPosition.x}px ${magnifierPosition.y}px`,
             }}
           />
           
-          {/* Magnifier Grip */}
-          <div
-            style={{
-              position: 'absolute',
-              bottom: '-35px',
-              right: '-35px',
-              width: '25px',
-              height: '25px',
-              backgroundColor: effectiveTheme.gripColor,
-              borderRadius: '50%',
-              boxShadow: `0 2px 6px ${effectiveTheme.shadowColor}`,
-              border: `2px solid ${effectiveTheme.handleColor}`,
-            }}
-          />
+          
         </div>
       )}
     </div>

@@ -6,12 +6,12 @@ export { default as ReactImageMagnifierAdvanced } from './ReactImageMagnifierAdv
 export { MagnifierProvider, useMagnifierContext, themes } from './MagnifierContext';
 
 // Hooks
-export { useMagnifier } from './hooks/useMagnifier';
+export * from './hooks/useImageMagnifier';
 export { useTouch } from './hooks/useTouch';
 
 // Types
 export type { MagnifierTheme } from './MagnifierContext';
-export type { Position, ImageSize, UseMagnifierOptions } from './hooks/useMagnifier';
+export { useImageMagnifier } from './hooks/useImageMagnifier';
 export type { TouchGesture, UseTouchOptions } from './hooks/useTouch';
 export type { 
   ReactImageMagnifierAdvancedProps,

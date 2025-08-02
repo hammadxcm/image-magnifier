@@ -1,3 +1,4 @@
+
 'use client';
 import { useState, useCallback, useRef, useEffect } from 'react';
 
@@ -13,7 +14,7 @@ export interface ImageSize {
   height: number;
 }
 
-export interface UseMagnifierOptions {
+export interface UseImageMagnifierOptions {
   magnifierSize: number;
   zoomLevel: number;
   disabled: boolean;
@@ -23,7 +24,7 @@ export interface UseMagnifierOptions {
   onMagnifierHide?: () => void;
 }
 
-export const useMagnifier = (options: UseMagnifierOptions) => {
+export const useImageMagnifier = (options: UseImageMagnifierOptions) => {
   const {
     magnifierSize,
     zoomLevel,
@@ -38,10 +39,12 @@ export const useMagnifier = (options: UseMagnifierOptions) => {
   const [imageSize, setImageSize] = useState<ImageSize>({ width: 0, height: 0 });
   const [position, setPosition] = useState<Position>({ x: 0, y: 0, mouseX: 0, mouseY: 0 });
   const [isImageLoaded, setIsImageLoaded] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
   
   const imageRef = useRef<HTMLImageElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const animationFrameRef = useRef<number>();
+  const animationFrameRef = useRef<number | null>(null);
   const lastUpdateTime = useRef<number>(0);
 
   const updateImageSize = useCallback(() => {
@@ -112,11 +115,15 @@ export const useMagnifier = (options: UseMagnifierOptions) => {
 
   const handleImageLoad = useCallback(() => {
     setIsImageLoaded(true);
+    setIsLoading(false);
+    setHasError(false);
     updateImageSize();
   }, [updateImageSize]);
 
   const handleImageError = useCallback(() => {
     setIsImageLoaded(false);
+    setIsLoading(false);
+    setHasError(true);
   }, []);
 
   useEffect(() => {
@@ -137,6 +144,8 @@ export const useMagnifier = (options: UseMagnifierOptions) => {
     imageSize,
     position,
     isImageLoaded,
+    isLoading,
+    hasError,
     imageRef,
     containerRef,
     showMagnifier,
