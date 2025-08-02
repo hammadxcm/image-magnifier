@@ -1,5 +1,6 @@
 'use client';
-import React, { useState, useCallback, useRef, useEffect } from 'react';
+import React from 'react';
+import { useImageMagnifier } from './hooks/useImageMagnifier';
 
 interface ReactImageMagnifierProps {
   imageSrc: string;
@@ -11,11 +12,13 @@ interface ReactImageMagnifierProps {
   imageWidth?: number;
   imageHeight?: number;
   className?: string;
-  magnifierClassName?: string;
+  
   borderColor?: string;
   borderWidth?: number;
   smooth?: boolean;
   disabled?: boolean;
+  magnifierShape?: 'circle' | 'square';
+  
 }
 
 const ReactImageMagnifier: React.FC<ReactImageMagnifierProps> = ({
@@ -28,136 +31,73 @@ const ReactImageMagnifier: React.FC<ReactImageMagnifierProps> = ({
   imageWidth = 500,
   imageHeight = 500,
   className = 'flex justify-center items-center',
-  magnifierClassName = '',
+  
   borderColor = 'rgba(255, 255, 255, 0.8)',
   borderWidth = 3,
   smooth = true,
   disabled = false,
+  magnifierShape = 'circle',
+  
 }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const [imageSize, setImageSize] = useState({ width: 0, height: 0 });
-  const [position, setPosition] = useState({
-    x: 0,
-    y: 0,
-    mouseX: 0,
-    mouseY: 0,
+  const {
+    isVisible,
+    imageSize,
+    position,
+    isImageLoaded,
+    imageRef,
+    containerRef,
+    showMagnifier,
+    hideMagnifier,
+    updatePosition,
+    handleImageLoad,
+    handleImageError,
+    isLoading,
+    hasError,
+  } = useImageMagnifier({ 
+    magnifierSize,
+    zoomLevel,
+    disabled,
+    smoothAnimations: smooth,
+    performanceMode: false,
   });
-  const [isImageLoaded, setIsImageLoaded] = useState(false);
-  const imageRef = useRef<HTMLImageElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
 
-  const updateImageSize = useCallback(() => {
-    if (imageRef.current) {
-      const { width, height } = imageRef.current.getBoundingClientRect();
-      setImageSize({ width, height });
-    }
-  }, []);
+  
 
-  useEffect(() => {
-    if (isImageLoaded) {
-      updateImageSize();
-      window.addEventListener('resize', updateImageSize);
-      return () => window.removeEventListener('resize', updateImageSize);
-    }
-  }, [isImageLoaded, updateImageSize]);
-
-  const updatePosition = useCallback((e: React.MouseEvent) => {
-    if (!containerRef.current || disabled) return;
-    
-    const { left, top, width, height } = containerRef.current.getBoundingClientRect();
-    const x = e.clientX - left;
-    const y = e.clientY - top;
-    
-    // Keep magnifier within image bounds
-    const halfMagnifier = magnifierSize / 2;
-    const clampedX = Math.max(halfMagnifier, Math.min(x, width - halfMagnifier));
-    const clampedY = Math.max(halfMagnifier, Math.min(y, height - halfMagnifier));
-    
-    setPosition({
-      x: -x * zoomLevel + halfMagnifier,
-      y: -y * zoomLevel + halfMagnifier,
-      mouseX: clampedX - halfMagnifier,
-      mouseY: clampedY - halfMagnifier,
-    });
-  }, [magnifierSize, zoomLevel, disabled]);
-
-  const handleMouseEnter = useCallback((e: React.MouseEvent) => {
-    if (disabled || !isImageLoaded) return;
-    updateImageSize();
-    setIsVisible(true);
-    updatePosition(e);
-  }, [disabled, isImageLoaded, updateImageSize, updatePosition]);
-
-  const handleMouseLeave = useCallback(() => {
-    if (disabled) return;
-    setIsVisible(false);
-  }, [disabled]);
-
-  const handleMouseMove = useCallback((e: React.MouseEvent) => {
-    if (disabled || !isVisible) return;
-    updatePosition(e);
-  }, [disabled, isVisible, updatePosition]);
-
-  const handleImageLoad = useCallback(() => {
-    setIsImageLoaded(true);
-  }, []);
-
-  const fileName = useCallback((src: string) => {
-    return src?.split('/')?.pop() || 'image';
-  }, []);
-
-  const magnifierStyles = {
-    display: isVisible && isImageLoaded ? 'block' : 'none',
-    position: 'absolute' as const,
-    top: `${position.mouseY}px`,
-    left: `${position.mouseX}px`,
-    width: `${magnifierSize}px`,
-    height: `${magnifierSize}px`,
-    borderRadius: '50%',
-    border: `${borderWidth}px solid ${borderColor}`,
-    pointerEvents: 'none' as const,
-    zIndex: 50,
-    opacity: isVisible ? 1 : 0,
-    transform: isVisible ? 'scale(1)' : 'scale(0.8)',
-    transition: smooth ? 'opacity 0.2s ease-in-out, transform 0.2s ease-in-out' : 'none',
-    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
-    backdropFilter: 'blur(1px)',
-  };
-
-  const lensStyles = {
-    width: '100%',
-    height: '100%',
-    backgroundImage: `url(${imageSrc})`,
-    backgroundSize: `${imageSize.width * zoomLevel}px ${imageSize.height * zoomLevel}px`,
-    backgroundPosition: `${position.x}px ${position.y}px`,
-    backgroundRepeat: 'no-repeat',
-    borderRadius: '50%',
-  };
+  
 
   if (!imageSrc) {
     return null;
+  }
+
+  if (isLoading) {
+    return <div className="flex justify-center items-center w-full h-full text-gray-500">Loading image...</div>;
+  }
+
+  if (hasError) {
+    return <div className="flex justify-center items-center w-full h-full text-red-500">Error loading image.</div>;
   }
 
   return (
     <div className={className}>
       <div
         ref={containerRef}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        onMouseMove={handleMouseMove}
+        onMouseEnter={showMagnifier}
+        onMouseLeave={hideMagnifier}
+        onMouseMove={updatePosition}
         className={`relative overflow-hidden ${!disabled ? 'cursor-crosshair' : 'cursor-default'}`}
+        tabIndex={disabled ? -1 : 0}
         role="img"
-        aria-label={imageAlt || `Magnifiable image: ${fileName(imageSrc)}`}
+        aria-label={imageAlt || `Magnifiable image: ${imageSrc.split('/').pop() || 'image'}`}
       >
         <img
           ref={imageRef}
-          key={`magnifier-${fileName(imageSrc)}`}
+          key={`magnifier-${imageSrc.split('/').pop() || 'image'}`}
           className={imageClassName}
-          alt={imageAlt || fileName(imageSrc)}
+          alt={imageAlt || imageSrc.split('/').pop() || 'image'}
           src={imageSrc}
           sizes={imageSizes}
           onLoad={handleImageLoad}
-          onError={() => setIsImageLoaded(false)}
+          onError={handleImageError}
           style={{
             width: `${imageWidth}px`,
             height: `${imageHeight}px`,
@@ -171,42 +111,30 @@ const ReactImageMagnifier: React.FC<ReactImageMagnifierProps> = ({
         {/* Magnifier Lens */}
         {!disabled && (
           <div
-            className={`magnifier-lens ${magnifierClassName}`}
-            style={magnifierStyles}
+            className={`absolute rounded-full pointer-events-none z-50 shadow-lg backdrop-blur-sm ${className}`}
+            style={{
+              display: isVisible && isImageLoaded ? 'block' : 'none',
+              top: `${position.mouseY}px`,
+              left: `${position.mouseX}px`,
+              width: `${magnifierSize}px`,
+              height: `${magnifierSize}px`,
+              border: `${borderWidth}px solid ${borderColor}`,
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'scale(1)' : 'scale(0.8)',
+              transition: smooth ? 'opacity 0.2s ease-in-out, transform 0.2s ease-in-out' : 'none',
+            }}
             aria-hidden="true"
           >
-            <div style={lensStyles} />
-            
-            {/* Magnifier Handle */}
-            <div
+            <div 
+              className={`w-full h-full bg-no-repeat ${magnifierShape === 'circle' ? 'rounded-full' : 'rounded-none'}`}
               style={{
-                position: 'absolute',
-                bottom: '-20px',
-                right: '-20px',
-                width: '40px',
-                height: '8px',
-                backgroundColor: 'rgba(139, 69, 19, 0.9)',
-                borderRadius: '4px',
-                transform: 'rotate(45deg)',
-                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.3)',
-                border: '1px solid rgba(101, 67, 33, 0.8)',
+                backgroundImage: `url(${imageSrc})`,
+                backgroundSize: `${imageSize.width * zoomLevel}px ${imageSize.height * zoomLevel}px`,
+                backgroundPosition: `${position.x}px ${position.y}px`,
               }}
             />
             
-            {/* Magnifier Grip */}
-            <div
-              style={{
-                position: 'absolute',
-                bottom: '-35px',
-                right: '-35px',
-                width: '25px',
-                height: '25px',
-                backgroundColor: 'rgba(160, 82, 45, 0.9)',
-                borderRadius: '50%',
-                boxShadow: '0 2px 6px rgba(0, 0, 0, 0.25)',
-                border: '2px solid rgba(101, 67, 33, 0.8)',
-              }}
-            />
+            
           </div>
         )}
       </div>
