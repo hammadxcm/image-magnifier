@@ -1,139 +1,154 @@
-# React Image Magnifier v0.9 🔍
+<div align="center">
 
-> **🚀 PRE-RELEASE:** Complete rewrite with incredible new features!
+# 🔍 React Image Magnifier
 
-A powerful, feature-rich React component for image magnification with advanced capabilities including touch support, multiple themes, performance optimization, and accessibility features.
+<p align="center">
+  <img src="https://img.shields.io/badge/React-18%2B%20%7C%2019%2B-61dafb?style=for-the-badge&logo=react&logoColor=white" alt="React" />
+  <img src="https://img.shields.io/badge/TypeScript-Ready-3178c6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Tailwind-CSS-06b6d4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
+</p>
 
-[![npm version](https://badge.fury.io/js/@hammadxcm%2Fimage-magnifier.svg)](https://www.npmjs.com/package/@hammadxcm/image-magnifier)
-[![License](https://img.shields.io/npm/l/@hammadxcm/image-magnifier)](https://github.com/hammadxcm/react-image-magnifier/blob/main/LICENSE)
-[![React](https://img.shields.io/badge/React-18%2B%20%7C%2019%2B-blue)](https://reactjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue)](https://www.typescriptlang.org/)
-[![Bundle Size](https://img.shields.io/bundlephobia/minzip/@hammadxcm/image-magnifier)](https://bundlephobia.com/package/@hammadxcm/image-magnifier)
+<p align="center">
+  <a href="https://www.npmjs.com/package/@hammadxcm/image-magnifier">
+    <img src="https://img.shields.io/npm/v/@hammadxcm/image-magnifier?style=flat-square&color=success" alt="npm version" />
+  </a>
+  <a href="https://bundlephobia.com/package/@hammadxcm/image-magnifier">
+    <img src="https://img.shields.io/bundlephobia/minzip/@hammadxcm/image-magnifier?style=flat-square&color=success" alt="Bundle Size" />
+  </a>
+  <a href="https://github.com/hammadxcm/react-image-magnifier/blob/main/LICENSE">
+    <img src="https://img.shields.io/npm/l/@hammadxcm/image-magnifier?style=flat-square&color=success" alt="License" />
+  </a>
+  <a href="https://github.com/hammadxcm/react-image-magnifier/stargazers">
+    <img src="https://img.shields.io/github/stars/hammadxcm/react-image-magnifier?style=flat-square&color=yellow" alt="GitHub Stars" />
+  </a>
+</p>
 
-> ⚠️ **Pre-Release Notice**: This is v0.9.0, a feature-complete pre-release version. All features are stable and ready for testing. The official v1.0.0 release will follow after community feedback.
+<h3>🎯 A modern, powerful React component for image magnification</h3>
+<p>Built with TypeScript, featuring multiple themes, touch support, and advanced customization options</p>
 
-## 🚀 What's New in v0.9 (Pre-Release)
+---
 
-<details>
-<summary><strong>📋 Complete Changelog</strong> (Click to expand)</summary>
+<p>
+  <a href="#-demo"><strong>🎬 Demo</strong></a> •
+  <a href="#-installation"><strong>📦 Installation</strong></a> •
+  <a href="#-quick-start"><strong>🚀 Quick Start</strong></a> •
+  <a href="#-examples"><strong>💡 Examples</strong></a> •
+  <a href="#-api"><strong>📖 API</strong></a>
+</p>
 
-### 🎯 **BREAKING CHANGES**
-- **New Advanced Component**: `ReactImageMagnifierAdvanced` with 25+ customizable props
-- **Context Provider**: `MagnifierProvider` for global state management
-- **Updated Exports**: Multiple named exports for better tree-shaking
-- **Enhanced TypeScript**: Complete type definitions with strict typing
-
-### ✨ **NEW FEATURES**
-
-#### 🎨 **Visual Enhancements**
-- **4 Built-in Themes**: Classic, Modern, Dark, and Neon themes
-- **Custom Theme Support**: Full customization of colors, borders, and effects
-- **Multiple Cursor Styles**: `crosshair`, `zoom-in`, `grab`, `pointer`, `none`
-- **Positioning Modes**: `follow`, `fixed-top-right`, `fixed-top-left`, `fixed-bottom-right`, `fixed-bottom-left`
-- **Zoom Controls**: Interactive +/- buttons with customizable min/max zoom
-- **Mini Map**: Navigation overview showing current magnified area
-- **Watermarks**: Add text or React components as watermarks
-- **Overlay Content**: Custom overlay components on images
-- **Smooth Animations**: Configurable transitions and easing
-
-#### 📱 **Touch & Mobile Support**
-- **Full Touch Support**: Native touch events with gesture recognition
-- **Pinch to Zoom**: Multi-touch zoom gestures
-- **Touch Navigation**: Drag to move magnification area
-- **Mobile Optimized**: Responsive design for all screen sizes
-- **Gesture Callbacks**: Custom handlers for touch events
-
-#### ⚡ **Performance Optimizations**
-- **Global State Management**: Only one active magnifier across the entire page
-- **60fps Throttling**: Smooth performance with high-frequency mouse movements
-- **Smart Re-rendering**: Optimized with React.memo and useCallback
-- **Lazy Loading**: Optional image preloading
-- **Performance Mode**: Special mode for pages with many images
-
-#### ♿ **Accessibility & UX**
-- **Keyboard Navigation**: Full keyboard support (+/- to zoom, Escape to hide)
-- **ARIA Labels**: Complete screen reader support
-- **Focus Management**: Proper tab navigation
-- **High Contrast**: Themes optimized for accessibility
-- **Loading States**: Proper handling of image loading and errors
-
-#### 🛠️ **Developer Experience**
-- **Custom Hooks**: `useMagnifier` and `useTouch` for advanced usage
-- **TypeScript First**: Complete type definitions with IntelliSense
-- **Tree Shaking**: Optimized bundle size with named exports
-- **Event Callbacks**: `onMagnifierShow`, `onMagnifierHide`, `onZoomChange`
-- **Error Boundaries**: Graceful error handling
-
-### 🔧 **IMPROVEMENTS**
-- **Better Image Handling**: Improved loading states and error handling
-- **Smoother Animations**: Enhanced transition system
-- **Memory Management**: Better cleanup and memory usage
-- **Bundle Size**: Optimized for smaller bundle impact
-- **SSR Support**: Better Next.js and SSR compatibility
-
-### 🐛 **BUG FIXES**
-- Fixed hydration mismatch errors in Next.js
-- Resolved magnifier visibility issues
-- Improved touch event handling on mobile devices
-- Fixed memory leaks with event listeners
-- Better cleanup on component unmount
-
-</details>
+</div>
 
 ---
 
 ## ✨ Features
 
-### 🚀 Core Features
-- **Smooth Magnification**: High-performance image zoom with customizable magnifier size and zoom levels
-- **Multiple Positioning Modes**: Follow cursor, fixed corners, or custom positioning
-- **Touch Support**: Full mobile and tablet support with pinch-to-zoom gestures
-- **Keyboard Navigation**: Zoom in/out with +/- keys, escape to hide magnifier
-- **Performance Optimized**: Smart rendering for multiple images on the same page
+<table>
+<thead>
+<tr>
+<th width="50%">🚀 Core Features</th>
+<th width="50%">⚡ Advanced Features</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
 
-### 🎨 Visual Features
-- **Multiple Themes**: Classic, Modern, Dark, and Neon built-in themes
-- **Custom Styling**: Full control over colors, borders, shadows, and effects
-- **Smooth Animations**: Configurable transitions and animations
-- **Mini Map**: Optional overview showing current magnified area
-- **Zoom Controls**: Built-in +/- buttons for zoom control
-- **Custom Cursors**: Multiple cursor styles (crosshair, zoom-in, grab, etc.)
+• 🔍 **Smooth Magnification** - High-performance zoom  
+• 🎨 **4 Built-in Themes** - Classic, Modern, Dark, Neon  
+• 📱 **Touch Support** - Pinch-to-zoom gestures  
+• ⌨️ **Keyboard Navigation** - +/- zoom, ESC hide  
+• 🎯 **Smart Positioning** - Follow cursor or fixed  
+• 🖱️ **Multiple Cursors** - Crosshair, zoom-in, etc  
 
-### 🔧 Advanced Features
-- **Context Management**: Global state management for multiple magnifiers
-- **Watermarks**: Add text or component watermarks to images
-- **Overlay Content**: Custom overlay components on images
-- **Accessibility**: Full ARIA support and keyboard navigation
-- **TypeScript**: Complete TypeScript support with detailed type definitions
+</td>
+<td>
+
+• 🎛️ **Zoom Controls** - Interactive +/- buttons  
+• 🗺️ **Mini Map** - Navigation overview  
+• 🏷️ **Watermarks** - Text or component overlays  
+• 🎭 **Custom Themes** - Full color customization  
+• ♿ **Accessibility** - ARIA support, screen readers  
+• 🔧 **TypeScript** - Complete type definitions  
+
+</td>
+</tr>
+</tbody>
+</table>
+
+---
+
+## 🎬 Demo
+
+<div align="center">
+<img src="https://img.shields.io/badge/Live%20Demo-Coming%20Soon-orange?style=for-the-badge" alt="Demo" />
+</div>
+
+```jsx
+// ✨ Just works out of the box!
+import { ReactImageMagnifier } from '@hammadxcm/image-magnifier';
+
+<ReactImageMagnifier
+  imageSrc="/your-amazing-image.jpg"
+  imageWidth={500}
+  imageHeight={400}
+/>
+```
+
+> **🎯 Hover over images to see the magnification effect in action**
+
+---
 
 ## 📦 Installation
+
+<table>
+<tr>
+<th>📦 npm</th>
+<th>🧶 yarn</th>
+<th>📌 pnpm</th>
+</tr>
+<tr>
+<td>
 
 ```bash
 npm install @hammadxcm/image-magnifier
 ```
 
+</td>
+<td>
+
 ```bash
 yarn add @hammadxcm/image-magnifier
 ```
+
+</td>
+<td>
 
 ```bash
 pnpm add @hammadxcm/image-magnifier
 ```
 
+</td>
+</tr>
+</table>
+
+---
+
 ## 🚀 Quick Start
 
 ### Basic Usage
 
-```tsx
+```jsx
 import { ReactImageMagnifier } from '@hammadxcm/image-magnifier';
 
-function MyComponent() {
+function ProductImage() {
   return (
     <ReactImageMagnifier
-      imageSrc="/path/to/your/image.jpg"
-      imageAlt="Your image description"
-      imageWidth={500}
+      imageSrc="/product.jpg"
+      imageAlt="Product showcase"
+      imageWidth={600}
       imageHeight={400}
+      magnifierSize={200}
+      zoomLevel={2.5}
     />
   );
 }
@@ -141,7 +156,7 @@ function MyComponent() {
 
 ### Advanced Usage with Provider
 
-```tsx
+```jsx
 import { 
   MagnifierProvider, 
   ReactImageMagnifierAdvanced 
@@ -150,30 +165,49 @@ import {
 function App() {
   return (
     <MagnifierProvider theme="modern" performanceMode={false}>
-      <div className="image-gallery">
+      <ReactImageMagnifierAdvanced
+        imageSrc="/hero-image.jpg"
+        theme="modern"
+        showZoomControls={true}
+        showMiniMap={true}
+        enableTouch={true}
+        watermark="© 2024 Your Brand"
+      />
+    </MagnifierProvider>
+  );
+}
+```
+
+---
+
+## 💡 Examples
+
+<details>
+<summary><strong>🎨 Themed Gallery</strong></summary>
+
+```jsx
+import { ReactImageMagnifierAdvanced, MagnifierProvider } from '@hammadxcm/image-magnifier';
+
+function ThemedGallery() {
+  return (
+    <MagnifierProvider>
+      <div className="grid grid-cols-2 gap-4">
+        {/* Modern Theme */}
         <ReactImageMagnifierAdvanced
           imageSrc="/image1.jpg"
-          imageAlt="First image"
-          imageWidth={400}
-          imageHeight={300}
-          showZoomControls={true}
-          showMiniMap={true}
           theme="modern"
+          showZoomControls={true}
           position="follow"
-          watermark="© 2024 Your Company"
+          cursorStyle="zoom-in"
         />
         
+        {/* Dark Theme */}
         <ReactImageMagnifierAdvanced
           imageSrc="/image2.jpg"
-          imageAlt="Second image"
-          imageWidth={400}
-          imageHeight={300}
+          theme="dark"
+          showMiniMap={true}
           position="fixed-top-right"
-          cursorStyle="zoom-in"
           enableTouch={true}
-          overlayContent={
-            <div className="premium-badge">Premium ✨</div>
-          }
         />
       </div>
     </MagnifierProvider>
@@ -181,67 +215,131 @@ function App() {
 }
 ```
 
-## 📖 API Reference
+</details>
 
-### ReactImageMagnifier (Basic Component)
+<details>
+<summary><strong>📱 Mobile-Optimized</strong></summary>
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `imageSrc` | `string` | **required** | Source URL of the image |
-| `imageAlt` | `string` | - | Alt text for accessibility |
-| `imageWidth` | `number` | `500` | Width of the image in pixels |
-| `imageHeight` | `number` | `500` | Height of the image in pixels |
-| `magnifierSize` | `number` | `300` | Size of the magnifier lens |
-| `zoomLevel` | `number` | `2.5` | Zoom level multiplier |
-| `className` | `string` | - | CSS class for the container |
-| `imageClassName` | `string` | - | CSS class for the image |
-| `disabled` | `boolean` | `false` | Disable magnification |
+```jsx
+function MobileGallery() {
+  return (
+    <ReactImageMagnifierAdvanced
+      imageSrc="/mobile-image.jpg"
+      enableTouch={true}
+      showZoomControls={true}
+      theme="modern"
+      minZoom={1.5}
+      maxZoom={4}
+      onZoomChange={(zoom) => console.log(`Zoom: ${zoom}x`)}
+      watermark="© 2024 Brand"
+    />
+  );
+}
+```
 
-### ReactImageMagnifierAdvanced
+</details>
 
-All basic props plus:
+<details>
+<summary><strong>🛍️ E-commerce Product</strong></summary>
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `theme` | `'classic' \| 'modern' \| 'dark' \| 'neon'` | `'classic'` | Built-in theme |
-| `customTheme` | `Partial<MagnifierTheme>` | - | Custom theme overrides |
-| `position` | `MagnifierPosition` | `'follow'` | Magnifier positioning mode |
-| `cursorStyle` | `CursorStyle` | `'crosshair'` | Mouse cursor style |
-| `showZoomControls` | `boolean` | `false` | Show +/- zoom buttons |
-| `showMiniMap` | `boolean` | `false` | Show navigation mini-map |
-| `enableKeyboard` | `boolean` | `true` | Enable keyboard shortcuts |
-| `enableTouch` | `boolean` | `true` | Enable touch/gesture support |
-| `performanceMode` | `boolean` | `false` | Enable performance optimizations |
-| `smoothTransitions` | `boolean` | `true` | Enable smooth animations |
-| `minZoom` | `number` | `1.5` | Minimum zoom level |
-| `maxZoom` | `number` | `5` | Maximum zoom level |
-| `watermark` | `string \| ReactNode` | - | Watermark content |
-| `overlayContent` | `ReactNode` | - | Custom overlay content |
-| `onMagnifierShow` | `() => void` | - | Callback when magnifier shows |
-| `onMagnifierHide` | `() => void` | - | Callback when magnifier hides |
-| `onZoomChange` | `(zoom: number) => void` | - | Callback on zoom level change |
+```jsx
+function ProductShowcase() {
+  return (
+    <ReactImageMagnifierAdvanced
+      imageSrc="/product.jpg"
+      theme="classic"
+      showZoomControls={true}
+      showMiniMap={true}
+      watermark="Premium Quality ✨"
+      overlayContent={
+        <div className="absolute top-4 left-4 bg-red-500 text-white px-2 py-1 rounded">
+          🔥 Sale 50% OFF
+        </div>
+      }
+      onMagnifierShow={() => console.log('User examining product')}
+    />
+  );
+}
+```
 
-### MagnifierProvider
+</details>
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `defaultTheme` | `string` | `'classic'` | Default theme for all magnifiers |
-| `performanceMode` | `boolean` | `false` | Global performance mode |
-| `smoothAnimations` | `boolean` | `true` | Global animation setting |
-| `touchEnabled` | `boolean` | `true` | Global touch support |
+---
 
 ## 🎨 Themes
 
-### Built-in Themes
+<div align="center">
 
-- **Classic**: Traditional magnifying glass with warm colors
-- **Modern**: Clean, minimalist design with blue accents
-- **Dark**: Dark theme with subtle highlights
-- **Neon**: Vibrant theme with pink/purple accents
+### Built-in Theme Showcase
 
-### Custom Themes
+</div>
 
-```tsx
+<table>
+<thead>
+<tr>
+<th align="center">🏛️ Classic</th>
+<th align="center">🎯 Modern</th>
+<th align="center">🌙 Dark</th>
+<th align="center">💎 Neon</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Traditional<br/>magnifying glass</td>
+<td align="center">Clean, minimalist<br/>blue accents</td>
+<td align="center">Perfect for<br/>dark mode</td>
+<td align="center">Vibrant pink<br/>highlights</td>
+</tr>
+<tr>
+<td>
+
+```jsx
+<ReactImageMagnifierAdvanced
+  theme="classic"
+  // Warm, traditional styling
+/>
+```
+
+</td>
+<td>
+
+```jsx
+<ReactImageMagnifierAdvanced
+  theme="modern"
+  // Clean blue accents
+/>
+```
+
+</td>
+<td>
+
+```jsx
+<ReactImageMagnifierAdvanced
+  theme="dark"
+  // Subtle dark highlights
+/>
+```
+
+</td>
+<td>
+
+```jsx
+<ReactImageMagnifierAdvanced
+  theme="neon"
+  // Pink/purple vibrancy
+/>
+```
+
+</td>
+</tr>
+</tbody>
+</table>
+
+### 🎨 Custom Themes
+
+Create your own unique styling:
+
+```jsx
 const customTheme = {
   borderColor: 'rgba(255, 0, 0, 0.8)',
   borderWidth: 2,
@@ -253,33 +351,217 @@ const customTheme = {
 
 <ReactImageMagnifierAdvanced
   customTheme={customTheme}
-  // other props...
+  magnifierSize={250}
 />
 ```
 
-## 📱 Touch & Mobile Support
+---
 
-The advanced component includes comprehensive touch support:
+## 📖 API
 
-- **Touch to Activate**: Tap and hold to show magnifier
-- **Drag to Navigate**: Drag finger to move magnification area
-- **Pinch to Zoom**: Use pinch gestures to change zoom level
-- **Responsive Design**: Automatically adapts to different screen sizes
+### ReactImageMagnifier (Basic)
 
-## ⌨️ Keyboard Shortcuts
+<table>
+<thead>
+<tr>
+<th>Prop</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>imageSrc</code></td>
+<td><code>string</code></td>
+<td><strong>required</strong></td>
+<td>Image source URL</td>
+</tr>
+<tr>
+<td><code>imageAlt</code></td>
+<td><code>string</code></td>
+<td>-</td>
+<td>Alt text for accessibility</td>
+</tr>
+<tr>
+<td><code>imageWidth</code></td>
+<td><code>number</code></td>
+<td><code>500</code></td>
+<td>Image width in pixels</td>
+</tr>
+<tr>
+<td><code>imageHeight</code></td>
+<td><code>number</code></td>
+<td><code>500</code></td>
+<td>Image height in pixels</td>
+</tr>
+<tr>
+<td><code>magnifierSize</code></td>
+<td><code>number</code></td>
+<td><code>300</code></td>
+<td>Magnifier lens size</td>
+</tr>
+<tr>
+<td><code>zoomLevel</code></td>
+<td><code>number</code></td>
+<td><code>2.5</code></td>
+<td>Zoom multiplier</td>
+</tr>
+<tr>
+<td><code>disabled</code></td>
+<td><code>boolean</code></td>
+<td><code>false</code></td>
+<td>Disable magnification</td>
+</tr>
+</tbody>
+</table>
 
-When `enableKeyboard` is true:
+### ReactImageMagnifierAdvanced
 
-- **+** or **=**: Zoom in
-- **-**: Zoom out  
-- **Escape**: Hide magnifier
+<details>
+<summary><strong>🔧 View Advanced Props</strong></summary>
 
-## 🚀 Performance Optimization
+<table>
+<thead>
+<tr>
+<th>Prop</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>theme</code></td>
+<td><code>'classic' | 'modern' | 'dark' | 'neon'</code></td>
+<td><code>'classic'</code></td>
+<td>Built-in theme</td>
+</tr>
+<tr>
+<td><code>customTheme</code></td>
+<td><code>Partial&lt;MagnifierTheme&gt;</code></td>
+<td>-</td>
+<td>Custom theme overrides</td>
+</tr>
+<tr>
+<td><code>position</code></td>
+<td><code>'follow' | 'fixed-*'</code></td>
+<td><code>'follow'</code></td>
+<td>Magnifier positioning</td>
+</tr>
+<tr>
+<td><code>cursorStyle</code></td>
+<td><code>'crosshair' | 'zoom-in' | 'grab' | 'pointer'</code></td>
+<td><code>'crosshair'</code></td>
+<td>Cursor style</td>
+</tr>
+<tr>
+<td><code>showZoomControls</code></td>
+<td><code>boolean</code></td>
+<td><code>false</code></td>
+<td>Show +/- buttons</td>
+</tr>
+<tr>
+<td><code>showMiniMap</code></td>
+<td><code>boolean</code></td>
+<td><code>false</code></td>
+<td>Show navigation map</td>
+</tr>
+<tr>
+<td><code>enableKeyboard</code></td>
+<td><code>boolean</code></td>
+<td><code>true</code></td>
+<td>Keyboard shortcuts</td>
+</tr>
+<tr>
+<td><code>enableTouch</code></td>
+<td><code>boolean</code></td>
+<td><code>true</code></td>
+<td>Touch/gesture support</td>
+</tr>
+<tr>
+<td><code>minZoom</code></td>
+<td><code>number</code></td>
+<td><code>1.5</code></td>
+<td>Minimum zoom level</td>
+</tr>
+<tr>
+<td><code>maxZoom</code></td>
+<td><code>number</code></td>
+<td><code>5</code></td>
+<td>Maximum zoom level</td>
+</tr>
+<tr>
+<td><code>watermark</code></td>
+<td><code>string | ReactNode</code></td>
+<td>-</td>
+<td>Watermark content</td>
+</tr>
+<tr>
+<td><code>overlayContent</code></td>
+<td><code>ReactNode</code></td>
+<td>-</td>
+<td>Custom overlay</td>
+</tr>
+<tr>
+<td><code>onMagnifierShow</code></td>
+<td><code>() =&gt; void</code></td>
+<td>-</td>
+<td>Show callback</td>
+</tr>
+<tr>
+<td><code>onMagnifierHide</code></td>
+<td><code>() =&gt; void</code></td>
+<td>-</td>
+<td>Hide callback</td>
+</tr>
+<tr>
+<td><code>onZoomChange</code></td>
+<td><code>(zoom: number) =&gt; void</code></td>
+<td>-</td>
+<td>Zoom change callback</td>
+</tr>
+</tbody>
+</table>
 
-### Multiple Images
-When displaying multiple magnifiable images:
+</details>
 
-```tsx
+---
+
+## ⌨️ Controls
+
+<table>
+<tr>
+<th>🖱️ Mouse/Keyboard</th>
+<th>📱 Touch Gestures</th>
+</tr>
+<tr>
+<td>
+
+• **Hover** - Show magnifier  
+• **+** or **=** - Zoom in  
+• **-** - Zoom out  
+• **Escape** - Hide magnifier  
+
+</td>
+<td>
+
+• **Tap & Hold** - Show magnifier  
+• **Drag** - Move view area  
+• **Pinch** - Zoom in/out  
+• **Double Tap** - Quick zoom  
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🚀 Performance
+
+### Multiple Images Optimization
+
+```jsx
 <MagnifierProvider performanceMode={true}>
   {images.map(image => (
     <ReactImageMagnifierAdvanced
@@ -292,32 +574,37 @@ When displaying multiple magnifiable images:
 ```
 
 ### Performance Features
-- **Single Active Magnifier**: Only one magnifier renders at a time
-- **60fps Throttling**: Smooth performance even with rapid mouse movement
-- **Smart Re-rendering**: Optimized React rendering with proper memoization
-- **Lazy Loading**: Images can be preloaded or loaded on demand
+- ⚡ **Single Active Magnifier** - Only one renders at a time
+- 🎯 **60fps Throttling** - Smooth with rapid movements  
+- 🧠 **Smart Re-rendering** - Optimized React patterns
+- 📦 **Tree Shaking** - Import only what you need
 
-## 🎯 Accessibility
+---
 
-- **ARIA Labels**: Proper labeling for screen readers
-- **Keyboard Navigation**: Full keyboard support
-- **Focus Management**: Proper focus handling
-- **High Contrast**: Themes work well with high contrast modes
+## ♿ Accessibility
 
-## 🛠️ Advanced Usage
+Built with accessibility in mind:
 
-### Custom Hooks
+- 🔊 **Screen Readers** - Full ARIA label support
+- ⌨️ **Keyboard Navigation** - Complete keyboard control  
+- 🎯 **Focus Management** - Proper tab order
+- 🌗 **High Contrast** - Works with system preferences
 
-```tsx
+---
+
+## 🔧 Advanced Usage
+
+<details>
+<summary><strong>🎣 Custom Hooks</strong></summary>
+
+```jsx
 import { useMagnifier, useTouch } from '@hammadxcm/image-magnifier';
 
 function CustomMagnifier() {
   const magnifierProps = useMagnifier({
     magnifierSize: 200,
     zoomLevel: 3,
-    disabled: false,
     smoothAnimations: true,
-    performanceMode: false,
   });
   
   const touchProps = useTouch({
@@ -325,7 +612,7 @@ function CustomMagnifier() {
     minZoom: 1,
     maxZoom: 5,
     onGesture: (gesture) => {
-      console.log('Gesture:', gesture);
+      console.log('Touch gesture:', gesture);
     },
   });
   
@@ -333,9 +620,12 @@ function CustomMagnifier() {
 }
 ```
 
-### Context Usage
+</details>
 
-```tsx
+<details>
+<summary><strong>🌐 Context Usage</strong></summary>
+
+```jsx
 import { useMagnifierContext } from '@hammadxcm/image-magnifier';
 
 function ThemeSelector() {
@@ -346,228 +636,166 @@ function ThemeSelector() {
       value={globalSettings.theme}
       onChange={(e) => updateGlobalSettings({ theme: e.target.value })}
     >
-      <option value="classic">Classic</option>
-      <option value="modern">Modern</option>
-      <option value="dark">Dark</option>
-      <option value="neon">Neon</option>
+      <option value="classic">🏛️ Classic</option>
+      <option value="modern">🎯 Modern</option>
+      <option value="dark">🌙 Dark</option>
+      <option value="neon">💎 Neon</option>
     </select>
   );
 }
 ```
 
-## 🔧 TypeScript Support
+</details>
 
-Full TypeScript support with comprehensive type definitions:
-
-```tsx
-import type { 
-  MagnifierTheme,
-  MagnifierPosition,
-  CursorStyle,
-  ReactImageMagnifierAdvancedProps 
-} from '@hammadxcm/image-magnifier';
-```
+---
 
 ## 🐛 Troubleshooting
 
-### Common Issues
+<details>
+<summary><strong>❓ Common Issues & Solutions</strong></summary>
 
-1. **Magnifier not showing**: Ensure `imageSrc` is valid and image loads successfully
-2. **Touch not working**: Check that `enableTouch` is true and `touchEnabled` in provider
-3. **Performance issues**: Enable `performanceMode` for multiple images
-4. **TypeScript errors**: Ensure you're using compatible React versions (18+ or 19+)
+### 🔍 Magnifier not showing
+- ✅ Ensure `imageSrc` is valid and loads successfully
+- ✅ Check that `disabled` prop is not set to `true`
+- ✅ Verify image dimensions are set correctly
 
-### Next.js Integration
+### 📱 Touch not working on mobile
+- ✅ Check that `enableTouch` is `true`
+- ✅ Ensure `touchEnabled` is enabled in MagnifierProvider
+- ✅ Test on actual device, not desktop browser
 
-```tsx
+### ⚡ Performance issues with multiple images
+- ✅ Enable `performanceMode` in MagnifierProvider
+- ✅ Use `performanceMode={true}` on individual components
+- ✅ Consider lazy loading for large galleries
+
+### 🔷 TypeScript errors
+- ✅ Ensure React 18+ or 19+ is installed
+- ✅ Check that all required props are provided
+- ✅ Import types: `import type { ReactImageMagnifierAdvancedProps } from '@hammadxcm/image-magnifier'`
+
+</details>
+
+<details>
+<summary><strong>⚛️ Framework Integration</strong></summary>
+
+### Next.js
+```jsx
 import dynamic from 'next/dynamic';
 
 const ReactImageMagnifier = dynamic(
   () => import('@hammadxcm/image-magnifier').then(mod => mod.ReactImageMagnifier),
   { ssr: false }
 );
-```
 
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 🔄 Migration from v1.x
-
-<details>
-<summary><strong>📦 Migrating from v1.x to v0.9</strong> (Click to expand)</summary>
-
-### Quick Migration (Backward Compatible)
-```tsx
-// v1.x - Still works in v0.9! 🎉
-import ReactImageMagnifier from '@hammadxcm/image-magnifier';
-
-function MyComponent() {
+function ProductPage() {
   return (
-    <ReactImageMagnifier 
-      imageSrc="/image.jpg" 
-      // All v1.x props still work!
+    <ReactImageMagnifier
+      imageSrc="/product.jpg"
+      imageWidth={600}
+      imageHeight={400}
     />
   );
 }
 ```
 
-### Upgrading to Advanced Features
-```tsx
-// v0.9 - New advanced component
-import { 
-  MagnifierProvider, 
-  ReactImageMagnifierAdvanced 
-} from '@hammadxcm/image-magnifier';
-
-function MyApp() {
-  return (
-    <MagnifierProvider>
-      <ReactImageMagnifierAdvanced
-        imageSrc="/image.jpg"
-        theme="modern"
-        showZoomControls={true}
-        enableTouch={true}
-        // 20+ new props available!
-      />
-    </MagnifierProvider>
-  );
-}
-```
-
-### Breaking Changes
-- Import structure changed for advanced features (basic usage unchanged)
-- Some TypeScript interfaces updated for better type safety
-- Performance optimizations may require `MagnifierProvider` for multiple images
-
 </details>
 
-## 🌟 Community & Examples
+---
 
-### 🎨 **Live Demo**
-Check out our [**Interactive Demo**](https://your-demo-link.com) showcasing all features with live code examples!
+## 🤝 Contributing
 
-### 🏆 **Featured Use Cases**
-- **E-commerce**: Product image zoom for online stores
-- **Photography**: Portfolio and gallery magnification
-- **Medical**: Detailed image analysis interfaces
-- **Real Estate**: Property image exploration
-- **Art & Design**: High-resolution artwork viewing
-- **Documentation**: Technical diagram magnification
+<div align="center">
+<img src="https://img.shields.io/badge/Contributions-Welcome-brightgreen?style=for-the-badge" alt="Contributions Welcome" />
+</div>
 
-### 🤝 **Community Contributions Welcome!**
+### Quick Contributions
+- 🐛 [Report bugs](https://github.com/hammadxcm/react-image-magnifier/issues/new?template=bug_report.md)
+- 💡 [Request features](https://github.com/hammadxcm/react-image-magnifier/issues/new?template=feature_request.md)
+- 📖 Improve documentation
+- 🎨 Create custom themes
 
-We ❤️ community contributions! Here's how you can help:
+### Development Setup
 
-#### 🎯 **Quick Wins**
-- 🐛 **Bug Reports**: Found an issue? [Report it!](https://github.com/hammadxcm/react-image-magnifier/issues/new?template=bug_report.md)
-- 💡 **Feature Requests**: Have an idea? [Suggest it!](https://github.com/hammadxcm/react-image-magnifier/issues/new?template=feature_request.md)
-- 📖 **Documentation**: Improve our docs with examples and clarifications
-- 🎨 **New Themes**: Create and share custom themes
-- 🌍 **Translations**: Help translate documentation
-
-#### 🔧 **Development**
 ```bash
 # Clone the repository
 git clone https://github.com/hammadxcm/react-image-magnifier.git
 
-# Install dependencies
+# Install dependencies  
 npm install
-
-# Run the development server
-cd sample-app && npm run dev
 
 # Build the package
 npm run build
+
+# Run tests
+npm test
 ```
-
-#### 🎨 **Contributing Themes**
-Share your custom themes with the community:
-```tsx
-// Create your theme
-const myAwesomeTheme = {
-  borderColor: 'rgba(255, 100, 50, 0.8)',
-  borderWidth: 2,
-  shadowColor: 'rgba(255, 100, 50, 0.3)',
-  // ... other properties
-};
-
-// Use it in your app
-<ReactImageMagnifierAdvanced 
-  customTheme={myAwesomeTheme} 
-  // ... other props
-/>
-```
-
-### 🏅 **Hall of Fame**
-Special thanks to our contributors:
-- 🚀 **Early Adopters**: Thank you for testing and feedback!
-- 🐛 **Bug Hunters**: Community members who reported issues
-- 💡 **Feature Requesters**: Great ideas that shaped v2.0
-- 📖 **Documentation Heroes**: Improved our guides and examples
-
-> **Want to be featured?** Contribute to the project and join our Hall of Fame! 🌟
-
-### 📊 **Project Stats**
-- ![GitHub Stars](https://img.shields.io/github/stars/hammadxcm/react-image-magnifier?style=social)
-- ![NPM Downloads](https://img.shields.io/npm/dm/@hammadxcm/image-magnifier)
-- ![GitHub Issues](https://img.shields.io/github/issues/hammadxcm/react-image-magnifier)
-- ![GitHub PRs](https://img.shields.io/github/issues-pr/hammadxcm/react-image-magnifier)
-
-## 🔮 Roadmap
-
-### 🎯 **Coming in v1.0** (Full Release)
-- [ ] **Video Magnification**: Support for video elements
-- [ ] **3D Image Support**: WebGL-based 3D image exploration
-- [ ] **AI-Powered Features**: Smart zoom regions detection
-- [ ] **More Themes**: Community-requested themes
-- [ ] **Animation Presets**: Pre-built animation configurations
-
-### 🚀 **Future Vision** (v2.0+)
-- [ ] **VR/AR Support**: Immersive magnification experiences
-- [ ] **Machine Learning**: Intelligent magnification suggestions
-- [ ] **Advanced Gestures**: More complex touch interactions
-- [ ] **Plugin System**: Extensible architecture
-
-> **Vote on features!** Join our [discussions](https://github.com/hammadxcm/react-image-magnifier/discussions) to shape the future of the library.
-
-## 📄 License
-
-ISC License - see [LICENSE](LICENSE) file for details.
-
-## 🙋‍♂️ Support & Community
-
-### 💬 **Get Help**
-- 🐛 **Bug Reports**: [GitHub Issues](https://github.com/hammadxcm/react-image-magnifier/issues)
-- 💡 **Feature Requests**: [GitHub Discussions](https://github.com/hammadxcm/react-image-magnifier/discussions)
-- 📖 **Documentation**: [Complete Guide](https://github.com/hammadxcm/react-image-magnifier#readme)
-- 💬 **Community Chat**: [Discord Server](https://discord.gg/your-invite) (coming soon!)
-
-### 🌟 **Stay Updated**
-- ⭐ **Star the repo** to show your support
-- 👀 **Watch releases** for updates
-- 🐦 **Follow on Twitter** [@hammadxcm](https://twitter.com/hammadxcm)
-- 📧 **Newsletter**: Subscribe to our updates (coming soon!)
-
-### 🎉 **Show Your Support**
-If this package saved you development time, consider:
-- ⭐ **Starring the repository**
-- 🐦 **Sharing on social media**
-- 📝 **Writing a blog post** about your experience
-- ☕ **Buying me a coffee** (link coming soon!)
 
 ---
 
-  <div align="center">
-  
-  ### 🎉 **Thank you for using React Image Magnifier!** 🎉
-  
-  **Made with ❤️ by [hammadxcm](https://github.com/hammadxcm) and the amazing open-source community**
-  
-  *Crafted with passion • Built for developers • Enhanced by community*
-  
-  [![GitHub](https://img.shields.io/badge/GitHub-hammadxcm-black?style=flat-square&logo=github)](https://github.com/hammadxcm)
-  [![Twitter](https://img.shields.io/badge/Twitter-@hammadxcm-blue?style=flat-square&logo=twitter)](https://twitter.com/hammadxcm)
-  [![LinkedIn](https://img.shields.io/badge/LinkedIn-hammadxcm-blue?style=flat-square&logo=linkedin)](https://linkedin.com/in/hammadxcm)
-  
-  </div>
+## 🔮 Roadmap
+
+### 🎯 Coming Soon
+- [ ] **🎥 Video Magnification** - Support for video elements
+- [ ] **🌐 3D Image Support** - WebGL-based exploration  
+- [ ] **🤖 AI-Powered Features** - Smart zoom region detection
+- [ ] **🎨 More Themes** - Community-requested designs
+- [ ] **✨ Animation Presets** - Pre-built configurations
+
+---
+
+## 📊 Stats
+
+<div align="center">
+<img src="https://img.shields.io/github/stars/hammadxcm/react-image-magnifier?style=social" alt="GitHub Stars" />
+<img src="https://img.shields.io/npm/dm/@hammadxcm/image-magnifier?style=flat-square&color=success" alt="NPM Downloads" />
+<img src="https://img.shields.io/github/issues/hammadxcm/react-image-magnifier?style=flat-square&color=blue" alt="GitHub Issues" />
+</div>
+
+---
+
+## 📄 License
+
+**ISC License** - see [LICENSE](LICENSE) file for details.
+
+---
+
+## 💬 Support & Community
+
+### Get Help
+- 🐛 **Bug Reports**: [GitHub Issues](https://github.com/hammadxcm/react-image-magnifier/issues)
+- 💡 **Feature Requests**: [GitHub Discussions](https://github.com/hammadxcm/react-image-magnifier/discussions)
+- 📖 **Documentation**: [Complete Guide](https://github.com/hammadxcm/react-image-magnifier#readme)
+
+### Show Your Support
+- ⭐ **Star the repository** to show your support
+- 🐦 **Share on social media** 
+- 📝 **Write a blog post** about your experience
+
+---
+
+<div align="center">
+
+### 🎉 Thank you for using React Image Magnifier! 🎉
+
+**Made with ❤️ by [hammadxcm](https://github.com/hammadxcm) and the amazing open-source community**
+
+*Crafted with passion • Built for developers • Enhanced by community*
+
+<p>
+<a href="https://github.com/hammadxcm">
+  <img src="https://img.shields.io/badge/GitHub-hammadxcm-black?style=flat-square&logo=github" alt="GitHub" />
+</a>
+<a href="https://twitter.com/hammadxcm">
+  <img src="https://img.shields.io/badge/Twitter-@hammadxcm-blue?style=flat-square&logo=twitter" alt="Twitter" />
+</a>
+<a href="https://linkedin.com/in/hammadxcm">
+  <img src="https://img.shields.io/badge/LinkedIn-hammadxcm-blue?style=flat-square&logo=linkedin" alt="LinkedIn" />
+</a>
+</p>
+
+---
+
+<img src="https://img.shields.io/badge/⭐_Star_this_repo_if_it_helped_you!-yellow?style=for-the-badge" alt="Star this repo" />
+
+</div>
